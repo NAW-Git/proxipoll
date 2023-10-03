@@ -15,7 +15,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "npm run client & npm run server",
     "client": "react-app-rewired start",
     "server": "cd server && source venv/bin/activate && python3 server.py",
     "build": "react-app-rewired build"
@@ -38,7 +38,6 @@
     ]
   },
   "devDependencies": {
-    "concurrently": "^8.2.1",
     "react-app-rewired": "^2.2.1"
   }
 }
