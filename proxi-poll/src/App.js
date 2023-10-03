@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import MenuIcon from '@mui/icons-material/Menu';
 import "./App.css";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
   return (
     <div>
         <header className="App-header">
+          <MenuIcon className="App-header-menu-icon"/>
           <div className="App-header-title">
             {testData}
           </div>
