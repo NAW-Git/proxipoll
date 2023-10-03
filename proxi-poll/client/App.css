@@ -1,6 +1,6 @@
 .App-header {
   position: fixed;
-  background-color: #007acce1;
+  background-color: #5588dd;
   min-height: 7vh;
   width: 100%;
   display: flex;
@@ -10,7 +10,7 @@
   font-weight: 300;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.75);
-  color: white;
+  color: rgb(245, 245, 245);
 }
 
 .App-header-menu-icon {
@@ -31,9 +31,9 @@
 }
 
 .Main-page {
-  background-color: #ffffff;
+  background-color: rgb(245, 245, 245);
   padding-top: 8vh;
-  height: 9vh;
+  height: 93vh;
   width: 100vw;
 }
 
