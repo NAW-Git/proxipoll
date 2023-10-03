@@ -15,10 +15,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "react-app-rewired start",
+    "server": "cd server && source venv/bin/activate && python3 server.py",
+    "build": "react-app-rewired build"
   },
   "eslintConfig": {
     "extends": [
@@ -36,5 +36,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.1",
+    "react-app-rewired": "^2.2.1"
   }
 }
