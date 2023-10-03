@@ -18,7 +18,8 @@
     "start": "npm run client & npm run server",
     "client": "react-app-rewired start",
     "server": "cd server && source venv/bin/activate && python3 server.py",
-    "build": "react-app-rewired build"
+    "build": "react-app-rewired build",
+    "kill": "kill -9 $(lsof -t -i tcp:3000)"
   },
   "eslintConfig": {
     "extends": [
