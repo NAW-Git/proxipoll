@@ -1,7 +1,11 @@
+body {
+  background-color: white;
+}
+
 .App-header {
   position: fixed;
   background-color: #5588dd;
-  min-height: 7vh;
+  height: 60px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -9,15 +13,14 @@
   font-size: 35px;
   font-weight: 300;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.75);
   color: rgb(245, 245, 245);
 }
 
 .App-header-menu-icon {
   position: absolute;
-  left: 0; 
-  margin-left: 25px;
+  right: 0; 
   transform: scale(2);
+  margin-right: 25px;
 }
 
 .App-header-menu-icon:hover {
@@ -31,17 +34,17 @@
 }
 
 .Main-page {
+  position: fixed;
   background-color: rgb(245, 245, 245);
   padding-top: 8vh;
-  height: 93vh;
+  height: 92vh;
   width: 100vw;
+  z-index: -1;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 800px) {
   .App-header-menu-icon {
-    left: auto;
-    right: 0;
-    margin-right: 25px;
+    display: block;
   }
   .App-header-title {
     position: absolute;
