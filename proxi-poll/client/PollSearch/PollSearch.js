@@ -10,9 +10,11 @@ function PollSearch() {
         <div className="PollsContainer">
             <div className="FilterContainer">
                 <input className="SearchBar" type="text" placeholder="Search"></input>
-                <div className="Toggle" style={{backgroundColor: "#5588dd", color: "white"}}>Status <KeyboardArrowDownIcon/></div>
+                <div className="Toggle" style={{backgroundColor: "#1f66e0", color: "white", borderColor: "transphttp://localhost:3000/static/media/Map.ae565714fa7124b4a67e.pngarent"}}>Status <KeyboardArrowDownIcon/></div>
                 <div className="Toggle">Type<KeyboardArrowDownIcon/></div>
                 <div className="Toggle">Radius<KeyboardArrowDownIcon/></div>
+                <div className="Toggle">Voted<KeyboardArrowDownIcon/></div>
+                <div className="Toggle">Sort By<KeyboardArrowDownIcon/></div>
             </div>
             <div className="Poll">
                 <div className="PollPoster">Posted by AnonymousUser</div>

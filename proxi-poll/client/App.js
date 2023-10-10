@@ -18,10 +18,17 @@ function App() {
       <PollSearch></PollSearch>
       <div>
         <header className="App-header">
-          <MenuIcon className="App-header-menu-icon"/>
-            <div className="App-header-title">
+          <div className="App-header-title">
               {testData}
             </div>
+          <MenuIcon className="App-header-menu-icon"/>
+          <div className="PagesContainer">
+            <div className="Page">BROWSE</div>
+            <div className="Page">POST</div>
+            <div className="Page">MY POLLS</div>
+            <div className="Page">PROFILE</div>
+            <div className="Page">LOGOUT</div>
+          </div>
           </header>
           <div className="Main-page">
           </div>
