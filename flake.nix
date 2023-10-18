@@ -27,6 +27,7 @@
         devshells.default = {
           devshell.packages = [
             pkgs.bun
+            pkgs.postgresql
           ];
 
           env = [
