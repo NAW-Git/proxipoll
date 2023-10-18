@@ -1,7 +1,10 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-
+    devenv = {
+      url = "github:cachix/devenv";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     devshell = {
       url = "github:numtide/devshell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -13,6 +16,7 @@
   outputs = inputs:
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       imports = [
+        inputs.devenv.flakeModule
         inputs.devshell.flakeModule
       ];
 
@@ -24,18 +28,10 @@
       ];
 
       perSystem = {pkgs, ...}: {
-        devshells.default = {
-          devshell.packages = [
-            pkgs.bun
-            pkgs.postgresql
-          ];
-
-          env = [
-            {
-              name = "PATH";
-              prefix = "node_modules/.bin";
-            }
-          ];
+        devenv.shells.default = {
+          languages.javascript.enable = true;
+          languages.javascript.package = pkgs.bun;
+          services.postgres.enable = true;
         };
       };
     };
