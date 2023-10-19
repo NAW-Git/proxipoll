@@ -39,5 +39,5 @@ CREATE TABLE votes (
 
 
 CREATE TABLE test ( dummy_number numeric );
-INSERT INTO test ( dummy_number ) VALUES ( 123.45 );
+INSERT INTO test ( dummy_number ) VALUES ( 13 );
 
