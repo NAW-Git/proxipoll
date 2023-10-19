@@ -1,7 +1,3 @@
--- Command for running 
--- \i ./database/tables/mainTables.sql
-
-
 CREATE SCHEMA proxi_poll_main;
 
 

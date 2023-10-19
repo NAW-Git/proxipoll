@@ -1,7 +1,3 @@
--- Command for running
--- \i ./database/stored_procedures/dropTables.sql
-
-
 SET search_path TO proxi_poll_main;
 
 
