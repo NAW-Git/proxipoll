@@ -1,6 +1,6 @@
+SET search_path TO proxi_poll_main;
+DROP SCHEMA IF EXISTS proxi_poll_main CASCADE;
 CREATE SCHEMA proxi_poll_main;
-
-
 SET search_path TO proxi_poll_main;
 
 
