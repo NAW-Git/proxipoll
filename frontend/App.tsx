@@ -4,12 +4,12 @@ import PollSearch from "./PollSearch/PollSearch";
 import "./App.css";
 
 function App() {
-  const [testData, setTestData] = useState<string | null>(null);
+  const [testData, setTestData] = useState<number | null>(null);
 
   useEffect(() => {
     fetch("http://localhost:7500/test")
       .then((res) => res.json())
-      .then((data) => setTestData(data.title))
+      .then((data) => setTestData(data.number))
       .catch((err) => {
         console.log(`Error Fetching Test Data: ${err}`);
       });
