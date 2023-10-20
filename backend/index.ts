@@ -19,7 +19,7 @@ const pool: Pool = new Pool({
 //   const client = await pool.connect();
 //   try {
 //     const checkDatabaseQuery =
-//       "SELECT dummy_number FROM proxi_poll_main.test";
+//       "SELECT dummy_number FROM proxipoll_accounts.test";
 
 //     const result = await client.query(checkDatabaseQuery);
 //     const tableExists = result.rows[0].exists;
@@ -41,7 +41,7 @@ app.get("/test", async (req: Request, res: Response) => {
   try {
     const client: PoolClient = await pool.connect();
     const result: QueryResult = await client.query(
-      "SELECT dummy_number FROM proxi_poll_main.test"
+      "SELECT dummy_number FROM proxipoll_accounts.test"
     );
     const number: number = result.rows[0].dummy_number;
     res.json({ number });
