@@ -4,12 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "bun run createDB && (bun run backend & bun run frontend)",
+    "development": "bun run kill && bun run database && (bun run backend & bun run frontend)",
     "frontend": "vite --open",
-    "backend": "bun backend/index.ts",
-    "createDB": "psql postgresql://proxipoll:proximity@localhost -a -f ./database/tables/mainTables.sql",
-    "dropDB": "psql postgresql://proxipoll:proximity@localhost -a -f ./database/stored_procedures/dropTables.sql",
-    "kill": "kill -9 $(lsof -t -i tcp:5173); kill -9 $(lsof -t -i tcp:7500)",
+    "backend": "bun run backend/index.ts",
+    "database": "psql postgresql://proxipoll:proximity@localhost -f ./database/tables/mainTables.sql",
+    "drop-database": "psql postgresql://proxipoll:proximity@localhost -f ./database/stored_procedures/dropTables.sql",
+    "kill": "kill -9 $(lsof -t -i :5173) || true && kill -9 $(lsof -t -i :7500) || true",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
