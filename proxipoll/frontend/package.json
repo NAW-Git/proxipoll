@@ -1,15 +1,9 @@
 {
-  "name": "proxipoll",
+  "name": "proxipoll_frontend",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "development": "bun run kill && bun run database && (bun run backend & bun run frontend)",
     "frontend": "vite --open",
-    "backend": "bun run backend/index.ts",
-    "database": "psql postgresql://proxipoll:proximity@localhost -f ./database/schemas/account_schema.sql -f ./database/schemas/poll_schema.sql",
-    "drop-database": "psql postgresql://proxipoll:proximity@localhost -f ./database/stored_procedures/drop_schemas.sql",
-    "kill": "kill -9 $(lsof -t -i :5173) || true && kill -9 $(lsof -t -i :7500) || true",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"

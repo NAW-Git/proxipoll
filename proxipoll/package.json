@@ -1,0 +1,19 @@
+{
+  "name": "proxipoll",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "postinstall": "(cd frontend && bun install) && (cd backend && bun install)",
+    "development": "bun kill && bun run init-database && concurrently 'bun run frontend' 'bun run backend'",
+    "frontend": "cd frontend && bun run frontend",
+    "backend": "cd backend && bun run backend",
+    "init-database": "psql postgresql://proxipoll:proximity@localhost -f ./database/schemas/account_schema.sql -f ./database/schemas/poll_schema.sql",
+    "drop-database": "psql postgresql://proxipoll:proximity@localhost -f ./database/stored_procedures/drop_schemas.sql",
+    "kill": "kill -9 $(lsof -t -i :5173) || true && kill -9 $(lsof -t -i :7500) || true",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
