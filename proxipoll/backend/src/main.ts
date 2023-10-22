@@ -1,18 +1,27 @@
+import cors from "cors";
 import express, { Express, Request, Response } from "express";
 import { Pool, PoolClient, QueryResult } from "pg";
-import cors from "cors";
 
-const PORT: number = 7500;
+import initialize_env from "./env";
+
+
+// Read and initialize environment variables.
+// If initialization fails, throw an error.
+if (!initialize_env(`${__dirname}/.env`)) {
+  throw Error(`Backend '.env' file created at ${__dirname}; please edit values accordingly.`);
+}
+
+// Initialize the Express applicaiton and its middleware.
 const app: Express = express();
-
 app.use(cors());
 
+// Initialize a new PostgreSQL connection pool.
 const pool: Pool = new Pool({
-  user: "proxipoll",
-  host: "localhost",
-  database: "proxipoll",
-  password: "proximity",
-  port: 5432,
+  user: process.env.POSTGRES_USERNAME,
+  password: process.env.POSTGRES_PASSWORD,
+  database: process.env.POSTGRES_DATABASE,
+  host: process.env.POSTGRES_HOST,
+  port: +process.env.POSTGRES_PORT
 });
 
 // async function checkDatabaseExistence() {
@@ -53,6 +62,6 @@ app.get("/test", async (req: Request, res: Response) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server listening on ${PORT}...`);
+app.listen(+process.env.BACKEND_PORT, () => {
+  console.log(`Server listening on port ${process.env.BACKEND_PORT}...`);
 });
