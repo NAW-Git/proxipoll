@@ -1,7 +1,7 @@
-// import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import Map from './Map.png'
 import "./PollSearch.css";
+import Map from './Map.png'
 
 function PollSearch() {
 
