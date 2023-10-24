@@ -14,9 +14,9 @@ function initialize_env(filepath: string): boolean {
       filepath,
       "# Backend and database environment variables; edit as necessary.\n"
       + "BACKEND_PORT=7500\n"
-      + "POSTGRES_USERNAME='proxipoll'\n"
-      + "POSTGRES_PASSWORD='proximiy'\n"
-      + "POSTGRES_DATABASE='proxipoll'\n"
+      + "POSTGRES_USERNAME='<replace me!>'\n"
+      + "POSTGRES_PASSWORD='<replace me!>'\n"
+      + "POSTGRES_DATABASE='<replace me!>'\n"
       + "POSTGRES_HOST='localhost'\n"
       + "POSTGRES_PORT=5432"
     );
