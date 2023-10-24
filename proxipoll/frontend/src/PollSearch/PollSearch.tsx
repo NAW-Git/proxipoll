@@ -1,36 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CheckBox from "@mui/icons-material/CheckBox";
-import debounce from "lodash/debounce";
+import Radio from "@mui/joy/Radio";
 import "./PollSearch.css";
 import Map from "./Map.png";
 
 function PollSearch() {
-  const [leftOffset, setLeftOffset] = useState(0);
+  const [currentDropdown, setCurrentDropdown] = useState<string>("");
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
-  const calculateDropdownPosition = () => {
-    if (dropdownRef.current) {
-      const dropdownBounds = dropdownRef.current.getBoundingClientRect();
-      const spaceToRightOfDropdown = window.innerWidth - dropdownBounds.right;
-
-      if (spaceToRightOfDropdown < 0) {
-        setLeftOffset(spaceToRightOfDropdown - 30);
-      } else {
-        setLeftOffset(0);
-      }
-    }
-  };
-
-  const debouncedCalculatePosition = debounce(calculateDropdownPosition, 100);
-
   useEffect(() => {
-    calculateDropdownPosition();
-    window.addEventListener("resize", debouncedCalculatePosition);
-
-    return () => {
-      window.removeEventListener("resize", debouncedCalculatePosition);
-    };
+    function handleResize() {
+      setCurrentDropdown("");
+    }
+    window.addEventListener("resize", handleResize);
   }, []);
 
   return (
@@ -41,11 +24,15 @@ function PollSearch() {
           <div className="ToggleContainer">
             <div
               className="Toggle"
+              onClick={() =>
+                currentDropdown === "status"
+                  ? setCurrentDropdown("")
+                  : setCurrentDropdown("status")
+              }
               style={{
                 backgroundColor: "#1f66e0",
                 color: "white",
-                borderColor:
-                  "transphttp://localhost:3000/static/media/Map.ae565714fa7124b4a67e.pngarent",
+                borderColor: "transparent",
               }}
             >
               Status <KeyboardArrowDownIcon />
@@ -53,66 +40,236 @@ function PollSearch() {
             <div
               className="Dropdown"
               ref={dropdownRef}
-              style={{ left: `${leftOffset}px` }}
+              style={{
+                display: currentDropdown === "status" ? "block" : "none",
+              }}
+            >
+              <ul className="vertical-list">
+                <li>
+                  <input
+                    type="radio"
+                    className="Radio"
+                    style={{ transform: "scale(130%)" }}
+                  />
+                  Active
+                </li>
+                <li>
+                  <input
+                    type="radio"
+                    className="Radio"
+                    style={{ transform: "scale(130%)" }}
+                  />
+                  Inactive
+                </li>
+              </ul>
+              <div className="ResetUpdateContainer">
+                <div className="Reset" onClick={() => setCurrentDropdown("")}>
+                  Reset
+                </div>
+                <div className="Update" onClick={() => setCurrentDropdown("")}>
+                  Update
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="ToggleContainer">
+            <div
+              className="Toggle"
+              onClick={() =>
+                currentDropdown === "type"
+                  ? setCurrentDropdown("")
+                  : setCurrentDropdown("type")
+              }
+            >
+              Type <KeyboardArrowDownIcon />
+            </div>
+            <div
+              className="Dropdown"
+              ref={dropdownRef}
+              style={{
+                display: currentDropdown === "type" ? "block" : "none",
+              }}
             >
               <ul className="vertical-list">
                 <li>
                   <CheckBox className="CheckBox" />
-                  Active
+                  Multiple Choice
                 </li>
                 <li>
                   <CheckBox className="CheckBox" />
-                  Inactive
-                </li>
-                <li>
-                  <CheckBox className="CheckBox" />
-                  All
-                </li>
-                <li>
-                  <CheckBox className="CheckBox" />
-                  Item 4
+                  Free Response
                 </li>
               </ul>
               <div className="ResetUpdateContainer">
-                <div className="Reset">Reset</div>
-                <div className="Update">Update</div>
+                <div className="Reset" onClick={() => setCurrentDropdown("")}>
+                  Reset
+                </div>
+                <div className="Update" onClick={() => setCurrentDropdown("")}>
+                  Update
+                </div>
               </div>
             </div>
           </div>
-          <div>
-            <div className="Toggle">
-              Type
-              <KeyboardArrowDownIcon />
+          <div className="ToggleContainer">
+            <div
+              className="Toggle"
+              onClick={() =>
+                currentDropdown === "radius"
+                  ? setCurrentDropdown("")
+                  : setCurrentDropdown("radius")
+              }
+            >
+              Radius <KeyboardArrowDownIcon />
             </div>
-            <div className="Dropdown" style={{ display: "none" }}>
-              Test
+            <div
+              className="Dropdown"
+              ref={dropdownRef}
+              style={{
+                display: currentDropdown === "radius" ? "block" : "none",
+              }}
+            >
+              <ul className="vertical-list">
+                <li>
+                  <input
+                    type="radio"
+                    className="Radio"
+                    style={{ transform: "scale(130%)" }}
+                  />
+                  5 Miles
+                </li>
+                <li>
+                  <input
+                    type="radio"
+                    className="Radio"
+                    style={{ transform: "scale(130%)" }}
+                  />
+                  10 Miles
+                </li>
+                <li>
+                  <input
+                    type="radio"
+                    className="Radio"
+                    style={{ transform: "scale(130%)" }}
+                  />
+                  15 Miles
+                </li>
+                <li>
+                  <input
+                    type="radio"
+                    className="Radio"
+                    style={{ transform: "scale(130%)" }}
+                  />
+                  20 Miles
+                </li>
+                <li>
+                  <input
+                    type="radio"
+                    className="Radio"
+                    style={{ transform: "scale(130%)" }}
+                  />
+                  25 Miles
+                </li>
+              </ul>
+              <div className="ResetUpdateContainer">
+                <div className="Reset" onClick={() => setCurrentDropdown("")}>
+                  Reset
+                </div>
+                <div className="Update" onClick={() => setCurrentDropdown("")}>
+                  Update
+                </div>
+              </div>
             </div>
           </div>
-          <div>
-            <div className="Toggle">
-              Radius
-              <KeyboardArrowDownIcon />
+          <div className="ToggleContainer">
+            <div
+              className="Toggle"
+              onClick={() =>
+                currentDropdown === "voted"
+                  ? setCurrentDropdown("")
+                  : setCurrentDropdown("voted")
+              }
+            >
+              Voted <KeyboardArrowDownIcon />
             </div>
-            <div className="Dropdown" style={{ display: "none" }}>
-              Test
+            <div
+              className="Dropdown"
+              ref={dropdownRef}
+              style={{
+                display: currentDropdown === "voted" ? "block" : "none",
+              }}
+            >
+              <ul className="vertical-list">
+                <li>
+                  <CheckBox className="CheckBox" />
+                  Have Voted
+                </li>
+                <li>
+                  <CheckBox className="CheckBox" />
+                  Have Not Voted
+                </li>
+              </ul>
+              <div className="ResetUpdateContainer">
+                <div className="Reset" onClick={() => setCurrentDropdown("")}>
+                  Reset
+                </div>
+                <div className="Update" onClick={() => setCurrentDropdown("")}>
+                  Update
+                </div>
+              </div>
             </div>
           </div>
-          <div>
-            <div className="Toggle">
-              Voted
-              <KeyboardArrowDownIcon />
+          <div className="ToggleContainer">
+            <div
+              className="Toggle"
+              onClick={() =>
+                currentDropdown === "sort by"
+                  ? setCurrentDropdown("")
+                  : setCurrentDropdown("sort by")
+              }
+            >
+              Sort By <KeyboardArrowDownIcon />
             </div>
-            <div className="Dropdown" style={{ display: "none" }}>
-              Test
-            </div>
-          </div>
-          <div>
-            <div className="Toggle">
-              Sort By
-              <KeyboardArrowDownIcon />
-            </div>
-            <div className="Dropdown" style={{ display: "none" }}>
-              Test
+            <div
+              className="Dropdown"
+              ref={dropdownRef}
+              style={{
+                display: currentDropdown === "sort by" ? "block" : "none",
+              }}
+            >
+              <ul className="vertical-list">
+                <li>
+                  <input
+                    type="radio"
+                    className="Radio"
+                    style={{ transform: "scale(130%)" }}
+                  />
+                  Newest
+                </li>
+                <li>
+                  <input
+                    type="radio"
+                    className="Radio"
+                    style={{ transform: "scale(130%)" }}
+                  />
+                  Oldest
+                </li>
+                <li>
+                  <input
+                    type="radio"
+                    className="Radio"
+                    style={{ transform: "scale(130%)" }}
+                  />
+                  Most Voted
+                </li>
+              </ul>
+              <div className="ResetUpdateContainer">
+                <div className="Reset" onClick={() => setCurrentDropdown("")}>
+                  Reset
+                </div>
+                <div className="Update" onClick={() => setCurrentDropdown("")}>
+                  Update
+                </div>
+              </div>
             </div>
           </div>
         </div>

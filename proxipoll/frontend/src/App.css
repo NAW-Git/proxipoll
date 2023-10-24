@@ -19,7 +19,6 @@ body {
 
 .PagesContainer {
   z-index: 1;
-  top: -25vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,7 +26,6 @@ body {
   font-weight: 300;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin-right: 10px;
-  transition: top 0.3s ease-in-out;
 }
 
 .Page {
@@ -71,12 +69,11 @@ body {
   z-index: -1;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 875px) {
   .App-header-menu-icon {
     visibility: visible;
   }
   .PagesContainer {
-    visibility: hidden;
     z-index: -1;
     background-color: rgb(255, 255, 255);
     position: fixed;
@@ -92,6 +89,7 @@ body {
     border-bottom: solid 1px black;
     padding-top: 10px;
     font-size: 20px;
+    transition: opacity 0.5s;
   }
   .Page {
     margin: 0px 0px 0px 0px;

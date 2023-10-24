@@ -5,6 +5,7 @@ import "./App.css";
 
 function App() {
   const [testData, setTestData] = useState<number | null>(null);
+  const [headerVisibility, setHeaderVisibility] = useState<string>("visible");
 
   useEffect(() => {
     fetch("http://localhost:7500/test")
@@ -15,14 +16,41 @@ function App() {
       });
   }, []);
 
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth > 875) {
+        setHeaderVisibility("visible");
+      } else {
+        setHeaderVisibility("hidden");
+      }
+    }
+
+    window.addEventListener("resize", handleResize);
+  });
+
   return (
     <div>
       <PollSearch></PollSearch>
       <div>
         <header className="App-header">
-          <div className="App-header-title">{testData}</div>
-          <MenuIcon className="App-header-menu-icon" />
-          <div className="PagesContainer">
+          <div className="App-header-title">
+            {testData == 13 ? "ProxiPoll" : "ProxiPoll Frontend"}
+          </div>
+          <MenuIcon
+            className="App-header-menu-icon"
+            onClick={() =>
+              headerVisibility === "visible"
+                ? setHeaderVisibility("hidden")
+                : setHeaderVisibility("visible")
+            }
+          />
+          <div
+            className="PagesContainer"
+            style={{
+              visibility: headerVisibility,
+              opacity: headerVisibility === "visible" ? 1 : 0,
+            }}
+          >
             <div className="Page">SEARCH</div>
             <div className="Page">POST</div>
             <div className="Page">MY POLLS</div>

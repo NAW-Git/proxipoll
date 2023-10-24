@@ -65,6 +65,7 @@
 }
 
 .Dropdown {
+  z-index: 5;
   border-radius: 20px;
   margin: -5px 5px 5px 5px;
   position: absolute;
@@ -73,6 +74,7 @@
   border: 1px solid #ccc;
   width: 275px;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.4);
+  border: solid 1px rgb(190, 190, 190);;
 }
 
 .vertical-list {
@@ -89,9 +91,17 @@
   margin-left: 15px;
 }
 
+.Radio {
+  margin: 0px 10px 0px 0px;
+}
+
+.Radio:hover {
+  cursor: pointer;
+}
+
 .CheckBox {
     color: #1f66e0;
-    margin-right: "5px";
+    margin-right: 5px;
 }
 
 .CheckBox:hover {
@@ -212,6 +222,7 @@
     padding: 0px 0px 0px 0px;
   }
   .Poll {
+    border-width: 0.5px;
     max-width: 100vw;
     width: calc(100vw - 20px);
     border-left: none;
