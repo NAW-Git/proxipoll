@@ -4,11 +4,12 @@ import { Pool, PoolClient, QueryResult } from "pg";
 
 import initialize_env from "./env";
 
-
 // Read and initialize environment variables.
 // If initialization fails, throw an error.
 if (!initialize_env(`${__dirname}/.env`)) {
-  throw Error(`Backend '.env' file created at ${__dirname}; please edit values accordingly.`);
+  throw Error(
+    `Backend '.env' file created at ${__dirname}; please edit values accordingly.`
+  );
 }
 
 // Initialize the Express applicaiton and its middleware.
@@ -21,7 +22,7 @@ const pool: Pool = new Pool({
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DATABASE,
   host: process.env.POSTGRES_HOST,
-  port: +process.env.POSTGRES_PORT
+  port: +process.env.POSTGRES_PORT,
 });
 
 // async function checkDatabaseExistence() {
