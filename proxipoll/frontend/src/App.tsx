@@ -23,7 +23,7 @@ function App() {
           <div className="App-header-title">{testData}</div>
           <MenuIcon className="App-header-menu-icon" />
           <div className="PagesContainer">
-            <div className="Page">BROWSE</div>
+            <div className="Page">SEARCH</div>
             <div className="Page">POST</div>
             <div className="Page">MY POLLS</div>
             <div className="Page">PROFILE</div>
