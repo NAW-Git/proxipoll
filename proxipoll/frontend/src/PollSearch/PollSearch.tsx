@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CheckBox from "@mui/icons-material/CheckBox";
-import Radio from "@mui/joy/Radio";
 import "./PollSearch.css";
 import Map from "./Map.png";
 
@@ -20,7 +19,12 @@ function PollSearch() {
     <div className="MainContainer">
       <div className="PollsContainer">
         <div className="FilterContainer">
-          <input className="SearchBar" type="text" placeholder="Search"></input>
+          <input
+            className="SearchBar"
+            type="text"
+            placeholder="Search"
+            onClick={() => setCurrentDropdown("")}
+          ></input>
           <div className="ToggleContainer">
             <div
               className="Toggle"
