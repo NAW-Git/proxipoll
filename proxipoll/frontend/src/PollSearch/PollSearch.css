@@ -22,12 +22,13 @@
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 10px;
-  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.3);
+  z-index: 2
 }
 
 .SearchBar {
   height: 40px;
-  width: 325px;
+  width: 300px;
   border-radius: 10px;
   padding-left: 10px;
   border: solid 1px black;
@@ -38,6 +39,7 @@
 .SearchBar:focus {
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.4);
 }
+
 
 .ToggleContainer {
   position: relative;
@@ -72,7 +74,7 @@
   margin: -5px 5px 5px 5px;
   position: absolute;
   z-index: 4;
-  background-color: white; 
+  background-color: white;
   width: 275px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
   border: solid 1px rgb(190, 190, 190);
@@ -149,8 +151,10 @@
 }
 
 .Update:hover {
-  border: solid 1px black;
+  border: solid 1px #1f66e0;
   cursor: pointer;
+  background-color: white;
+  color: #1f66e0;
 }
 
 .PollsContainer {
@@ -165,6 +169,7 @@
 }
 
 .Poll {
+  position: relative;
   max-width: 650px;
   padding-left: 10px;
   padding-right: 10px;
@@ -181,13 +186,62 @@
 .Poll:hover {
   background-color: rgb(248, 248, 248);
   cursor: pointer;
-  border-color: black;
+  border-color: rgb(190, 190, 190);
 }
 
 .PollPoster {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-size: 15px;
   line-height: 30px;
   color: rgb(125, 125, 125);
+}
+
+.PollMoreIcon {
+  background-color: rgba(225, 225, 225, 0);
+  transition: background-color 0.2s;
+  transform: scale(110%);
+}
+
+.PollMoreIcon:hover {
+  background-color: rgb(225, 225, 225);
+  border-radius: 5px;
+  transition: background-color 0.2s;
+}
+
+.PollDropdown {
+  position: absolute;
+  background-color: white;
+  top: 0;
+  right: 0;
+  line-height: 15px;
+  margin-right: 9px;
+  margin-top: 27px;
+  border-radius: 5px;
+  border: solid 1px rgb(190, 190, 190);
+  font-size: 18px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.6);
+}
+
+.PollOption {
+  height: 25px;
+  display: flex;
+  align-items: center;
+  color: rgb(125, 125, 125);
+  border-radius: 4px;
+  padding-right: 5px;
+}
+
+.PollOption:hover {
+  background-color: rgb(235, 245, 245);
+  color: black;
+}
+
+.OptionBorder {
+  height: 1px;
+  width: 100%;
+  background-color: rgb(190, 190, 190);
 }
 
 .PollQuestion {

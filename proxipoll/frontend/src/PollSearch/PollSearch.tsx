@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CheckBox from "@mui/icons-material/CheckBox";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import ReportIcon from "@mui/icons-material/Report";
+import DeleteIcon from "@mui/icons-material/Delete";
 import "./PollSearch.css";
 import Map from "./Map.png";
 
@@ -14,6 +17,93 @@ function PollSearch() {
     }
     window.addEventListener("resize", handleResize);
   }, []);
+
+  function generatePolls() {
+    const pollTitles = [
+      ["Who is the basketball goat?", 32],
+      ["Is ice cream or cake better?", 12],
+      ["Best burger spot in town?", 2],
+      ["How old should you have to be to drive?", 45],
+      ["What are the four best Marvel movies of all time?", 32],
+      ["Should healthcare be free in the United States?", 12],
+      ["Is this town boring?", 52],
+      ["Should they build a townhall for the city?", 45],
+      ["Who is the basketball goat?", 32],
+      ["Is ice cream or cake better?", 12],
+      ["Best burger spot in town?", 2],
+      ["How old should you have to be to drive?", 45],
+      ["What are the four best Marvel movies of all time?", 32],
+      ["Should healthcare be free in the United States?", 12],
+      ["Is this town boring?", 52],
+      ["Should they build a townhall for the city?", 45],
+    ];
+
+    const polls = pollTitles.map((title, index) => (
+      <div key={index}>
+        <div className="Poll">
+          <div className="PollPoster">
+            Posted by AnonymousUser &#8226; 49 Answers
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <MoreHorizIcon
+                className="PollMoreIcon"
+                onClick={() =>
+                  currentDropdown === `poll${index}`
+                    ? setCurrentDropdown("")
+                    : setCurrentDropdown(`poll${index}`)
+                }
+              />
+              <div
+                className="PollDropdown"
+                style={{
+                  display:
+                    currentDropdown === `poll${index}` ? "block" : "none",
+                }}
+              >
+                <div
+                  className="PollOption"
+                  onClick={() =>
+                    currentDropdown === `poll${index}`
+                      ? setCurrentDropdown("")
+                      : setCurrentDropdown(`poll${index}`)
+                  }
+                >
+                  <ReportIcon
+                    style={{
+                      transform: "scale(90%)",
+                    }}
+                  />
+                  Report
+                </div>
+                <div className="OptionBorder"></div>
+                <div
+                  className="PollOption"
+                  onClick={() =>
+                    currentDropdown === `poll${index}`
+                      ? setCurrentDropdown("")
+                      : setCurrentDropdown(`poll${index}`)
+                  }
+                >
+                  <DeleteIcon
+                    style={{
+                      transform: "scale(90%)",
+                    }}
+                  />
+                  Delete
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="PollQuestion">{title[0]}</div>
+          <div className="TimeRemaining" style={{ color: (title[1] > 30) ? "rgb(0, 150, 0)" : "rgb(200, 0, 0)" }}>
+            {title[1]} minutes left
+          </div>
+        </div>
+      </div>
+    ));
+
+    console.log(polls);
+    return polls;
+  }
 
   return (
     <div className="MainContainer">
@@ -53,7 +143,7 @@ function PollSearch() {
                   <input
                     type="radio"
                     className="Radio"
-                    style={{ transform: "scale(130%)" }}
+                    style={{ transform: "scale(140%)" }}
                   />
                   Active
                 </li>
@@ -61,7 +151,7 @@ function PollSearch() {
                   <input
                     type="radio"
                     className="Radio"
-                    style={{ transform: "scale(130%)" }}
+                    style={{ transform: "scale(140%)" }}
                   />
                   Inactive
                 </li>
@@ -137,7 +227,7 @@ function PollSearch() {
                   <input
                     type="radio"
                     className="Radio"
-                    style={{ transform: "scale(130%)" }}
+                    style={{ transform: "scale(140%)" }}
                   />
                   5 Miles
                 </li>
@@ -145,7 +235,7 @@ function PollSearch() {
                   <input
                     type="radio"
                     className="Radio"
-                    style={{ transform: "scale(130%)" }}
+                    style={{ transform: "scale(140%)" }}
                   />
                   10 Miles
                 </li>
@@ -153,7 +243,7 @@ function PollSearch() {
                   <input
                     type="radio"
                     className="Radio"
-                    style={{ transform: "scale(130%)" }}
+                    style={{ transform: "scale(140%)" }}
                   />
                   15 Miles
                 </li>
@@ -161,7 +251,7 @@ function PollSearch() {
                   <input
                     type="radio"
                     className="Radio"
-                    style={{ transform: "scale(130%)" }}
+                    style={{ transform: "scale(140%)" }}
                   />
                   20 Miles
                 </li>
@@ -169,7 +259,7 @@ function PollSearch() {
                   <input
                     type="radio"
                     className="Radio"
-                    style={{ transform: "scale(130%)" }}
+                    style={{ transform: "scale(140%)" }}
                   />
                   25 Miles
                 </li>
@@ -245,7 +335,7 @@ function PollSearch() {
                   <input
                     type="radio"
                     className="Radio"
-                    style={{ transform: "scale(130%)" }}
+                    style={{ transform: "scale(140%)" }}
                   />
                   Newest
                 </li>
@@ -253,7 +343,7 @@ function PollSearch() {
                   <input
                     type="radio"
                     className="Radio"
-                    style={{ transform: "scale(130%)" }}
+                    style={{ transform: "scale(140%)" }}
                   />
                   Oldest
                 </li>
@@ -261,7 +351,7 @@ function PollSearch() {
                   <input
                     type="radio"
                     className="Radio"
-                    style={{ transform: "scale(130%)" }}
+                    style={{ transform: "scale(140%)" }}
                   />
                   Most Voted
                 </li>
@@ -277,112 +367,7 @@ function PollSearch() {
             </div>
           </div>
         </div>
-        <div className="Poll">
-          <div className="PollPoster">Posted by AnonymousUser</div>
-          <div className="PollQuestion">
-            Should NBA and WNBA players make the same money?
-          </div>
-          <div className="TimeRemaining" style={{ color: "rgb(0, 150, 0)" }}>
-            32 minutes left
-          </div>
-        </div>
-        <div className="Poll">
-          <div className="PollPoster">Posted by AnonymousUser</div>
-          <div className="PollQuestion">
-            Do you guys prefer to put cereal or milk first in the bowl?
-          </div>
-          <div className="TimeRemaining">14 minutes left</div>
-        </div>
-        <div className="Poll">
-          <div className="PollPoster">Posted by AnonymousUser</div>
-          <div className="PollQuestion">Smile or personality?</div>
-          <div className="TimeRemaining" style={{ color: "rgb(0, 150, 0)" }}>
-            2 hours left
-          </div>
-        </div>
-        <div className="Poll">
-          <div className="PollPoster">Posted by AnonymousUser</div>
-          <div className="PollQuestion">
-            What is the best name for a dog that is spotted with tan dots?
-          </div>
-          <div className="TimeRemaining">2 minutes left</div>
-        </div>
-        <div className="Poll">
-          <div className="PollPoster">Posted by AnonymousUser</div>
-          <div className="PollQuestion">Who has the best burgers in town?</div>
-          <div className="TimeRemaining">17 minutes left</div>
-        </div>
-        <div className="Poll">
-          <div className="PollPoster">Posted by AnonymousUser</div>
-          <div className="PollQuestion">
-            What is the best color in the rainbow?
-          </div>
-          <div className="TimeRemaining" style={{ color: "rgb(0, 150, 0)" }}>
-            1 day left
-          </div>
-        </div>
-        <div className="Poll">
-          <div className="PollPoster">Posted by AnonymousUser</div>
-          <div className="PollQuestion">
-            Who is the better programmer, Nico or Keaton?
-          </div>
-          <div className="TimeRemaining" style={{ color: "rgb(0, 150, 0)" }}>
-            1 week left
-          </div>
-        </div>
-        <div className="Poll">
-          <div className="PollPoster">Posted by AnonymousUser</div>
-          <div className="PollQuestion">
-            Should NBA and WNBA players make the same money?
-          </div>
-          <div className="TimeRemaining" style={{ color: "rgb(0, 150, 0)" }}>
-            32 minutes left
-          </div>
-        </div>
-        <div className="Poll">
-          <div className="PollPoster">Posted by AnonymousUser</div>
-          <div className="PollQuestion">
-            Do you guys prefer to put cereal or milk first in the bowl?
-          </div>
-          <div className="TimeRemaining">14 minutes left</div>
-        </div>
-        <div className="Poll">
-          <div className="PollPoster">Posted by AnonymousUser</div>
-          <div className="PollQuestion">Smile or personality?</div>
-          <div className="TimeRemaining" style={{ color: "rgb(0, 150, 0)" }}>
-            2 hours left
-          </div>
-        </div>
-        <div className="Poll">
-          <div className="PollPoster">Posted by AnonymousUser</div>
-          <div className="PollQuestion">
-            What is the best name for a dog that is spotted with tan dots?
-          </div>
-          <div className="TimeRemaining">2 minutes left</div>
-        </div>
-        <div className="Poll">
-          <div className="PollPoster">Posted by AnonymousUser</div>
-          <div className="PollQuestion">Who has the best burgers in town?</div>
-          <div className="TimeRemaining">17 minutes left</div>
-        </div>
-        <div className="Poll">
-          <div className="PollPoster">Posted by AnonymousUser</div>
-          <div className="PollQuestion">
-            What is the best color in the rainbow?
-          </div>
-          <div className="TimeRemaining" style={{ color: "rgb(0, 150, 0)" }}>
-            1 day left
-          </div>
-        </div>
-        <div className="Poll">
-          <div className="PollPoster">Posted by AnonymousUser</div>
-          <div className="PollQuestion">
-            Who is the better programmer, Nico or Keaton?
-          </div>
-          <div className="TimeRemaining" style={{ color: "rgb(0, 150, 0)" }}>
-            1 week left
-          </div>
-        </div>
+        {generatePolls()}
       </div>
       <img className="MapContainer" src={Map} alt="Santa Cruz Map"></img>
     </div>
