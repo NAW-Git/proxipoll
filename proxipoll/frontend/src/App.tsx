@@ -70,10 +70,30 @@ function App() {
               opacity: headerVisibility === "visible" ? 1 : 0,
             }}
           >
-            <div className="Page">SEARCH</div>
-            <div className="Page">POST</div>
-            <div className="Page">PROFILE</div>
-            <div className="Page">LOGOUT</div>
+            <div
+              className="Page"
+              onClick={() => { if (!largeView) setHeaderVisibility("hidden")}}
+            >
+              SEARCH
+            </div>
+            <div
+              className="Page"
+              onClick={() => { if (!largeView) setHeaderVisibility("hidden")}}
+            >
+              POST
+            </div>
+            <div
+              className="Page"
+              onClick={() => { if (!largeView) setHeaderVisibility("hidden")}}
+            >
+              PROFILE
+            </div>
+            <div
+              className="Page"
+              onClick={() => { if (!largeView) setHeaderVisibility("hidden")}}
+            >
+              LOGOUT
+            </div>
           </div>
         </header>
         <div className="Main-page"></div>

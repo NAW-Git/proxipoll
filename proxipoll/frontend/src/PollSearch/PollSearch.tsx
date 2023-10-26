@@ -20,7 +20,10 @@ function PollSearch() {
 
   function generatePolls() {
     const pollTitles = [
-      ["Who is the basketball goat?", 32],
+      [
+        "Does anyone else think that we should be able to divide by 0 in calculus?",
+        32,
+      ],
       ["Is ice cream or cake better?", 12],
       ["Best burger spot in town?", 2],
       ["How old should you have to be to drive?", 45],
@@ -34,8 +37,22 @@ function PollSearch() {
       ["How old should you have to be to drive?", 45],
       ["What are the four best Marvel movies of all time?", 32],
       ["Should healthcare be free in the United States?", 12],
-      ["Is this town boring?", 52],
-      ["Should they build a townhall for the city?", 45],
+      ["Who is the basketball goat?", 32],
+      ["Is ice cream or cake better?", 12],
+      ["Best burger spot in town?", 2],
+      ["How old should you have to be to drive?", 45],
+      ["What are the four best Marvel movies of all time?", 32],
+      ["Dominos or RoundTable?", 12],
+      ["Is this the last poll ever?", 52],
+      ["What are the four best Marvel movies of all time?", 32],
+      ["Should healthcare be free in the United States?", 12],
+      ["Who is the basketball goat?", 32],
+      ["Is ice cream or cake better?", 12],
+      ["Best burger spot in town?", 2],
+      ["How old should you have to be to drive?", 45],
+      ["What are the four best Marvel movies of all time?", 32],
+      ["Dominos or RoundTable?", 12],
+      ["Is the end near?", 52]
     ];
 
     const polls = pollTitles.map((title, index) => (
@@ -94,20 +111,23 @@ function PollSearch() {
             </div>
           </div>
           <div className="PollQuestion">{title[0]}</div>
-          <div className="TimeRemaining" style={{ color: (title[1] > 30) ? "rgb(0, 150, 0)" : "rgb(200, 0, 0)" }}>
+          <div
+            className="TimeRemaining"
+            style={{
+              color: title[1] > 30 ? "rgb(0, 150, 0)" : "rgb(200, 0, 0)",
+            }}
+          >
             {title[1]} minutes left
           </div>
         </div>
       </div>
     ));
-
-    console.log(polls);
     return polls;
   }
 
   return (
     <div className="MainContainer">
-      <div className="PollsContainer">
+      <div className="FilterAndPollsContainer">
         <div className="FilterContainer">
           <input
             className="SearchBar"
@@ -367,7 +387,7 @@ function PollSearch() {
             </div>
           </div>
         </div>
-        {generatePolls()}
+        <div className="PollsContainer">{generatePolls()}</div>
       </div>
       <img className="MapContainer" src={Map} alt="Santa Cruz Map"></img>
     </div>
