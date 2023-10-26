@@ -69,7 +69,7 @@ will be interpreted as:
 - User password: ``'smallsecret'``
 - Database name: ``'bigdata'``
 - Database host: ``'localhost'``
-- Database port: ``'5432'``
+- Database port: ``5432``
 
 After this script is run,
 a lot of information is printed to ``stdout``;
