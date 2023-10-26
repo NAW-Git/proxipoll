@@ -211,6 +211,7 @@
 }
 
 .PollDropdown {
+  z-index: 1;
   position: absolute;
   background-color: white;
   top: 0;
