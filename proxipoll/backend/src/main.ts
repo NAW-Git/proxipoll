@@ -1,16 +1,10 @@
 import cors from "cors";
+import dotenv from "dotenv";
 import express, { Express, Request, Response } from "express";
 import { Pool, PoolClient, QueryResult } from "pg";
 
-import initialize_env from "./env";
-
 // Read and initialize environment variables.
-// If initialization fails, throw an error.
-if (!initialize_env(`${__dirname}/.env`)) {
-  throw Error(
-    `Backend '.env' file created at ${__dirname}; please edit values accordingly.`
-  );
-}
+dotenv.config({path: "../.env"});
 
 // Initialize the Express applicaiton and its middleware.
 const app: Express = express();
