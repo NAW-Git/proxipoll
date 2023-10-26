@@ -209,12 +209,16 @@ create_sql_file(
   parsed_args
 );
 console.log(
-  "\nEnvironment variables and PostgreSQL initialization script created.\n"
-  + "To finish initialization, login to PostgreSQL as the 'postgres' user and run the following in order:\n"
+  "\nEnvironment variables and PostgreSQL initialization script created.\n\n"
+  + "To finish initialization, navigate to your 'postgresql.conf' file and add the following lines under 'CUSTOMIZED OPTIONS':\n"
+  + "  shared_preload_libraries = 'pg_cron'\n"
+  + `  cron.database_name = '${parsed_args.db_database}'\n`
+  + "  cron.use_background_workers = on\n\n"
+  + "Then, login to PostgreSQL as the 'postgres' user and run the following in order:\n"
   + `  CREATE USER ${parsed_args.db_admin_username} `
-  + `WITH SUPERUSER PASSWORD '<your ${parsed_args.db_admin_password?.length}-character admin password>'\n`
+  + `WITH SUPERUSER PASSWORD '<your ${parsed_args.db_admin_password?.length}-character admin password>';\n`
   + `  CREATE USER ${parsed_args.db_user_username} `
-  + `WITH PASSWORD '<your ${parsed_args.db_user_password?.length}-character user password>'\n`
+  + `WITH PASSWORD '<your ${parsed_args.db_user_password?.length}-character user password>';\n`
   + `  CREATE DATABASE ${parsed_args.db_database} WITH OWNER ${parsed_args.db_admin_username};\n\n`
   + `Then, logout of the 'postgres' user and run the following command in the normal terminal:\n`
   + `  psql postgresql://${parsed_args.db_admin_username}:`
@@ -224,5 +228,5 @@ console.log(
   + `/${parsed_args.db_database} `
   + "-f ./database/procedures/initialize_database.sql\n\n"
   + "After this, your database should be initialized.\n"
-  + "Refer to the README for more detained information."
+  + "Refer to the README for a more detained explanation."
 );
