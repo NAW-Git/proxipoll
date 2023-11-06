@@ -1,25 +1,28 @@
+/* Why can't you see last poll, make it so dropdown goes on page, finalize design, clean code*/
+
 .MainContainer {
   margin-top: 120px;
   bottom: 0;
-  height: calc(100vh - 60px);
+  max-height: calc(100vh - 60px); 
   width: 100vw;
   display: flex;
   justify-content: right;
   align-items: flex-start;
   position: fixed;
+  overflow-y: scroll;
 }
 
 .FilterAndPollsContainer {
+  height: 100%;
   max-width: 900px;
   position: absolute;
   left: 0;
-  height: 100%;
   z-index: 2;
 }
 
 .FilterContainer {
   top: 0;
-  position: relative;
+  position: sticky;
   background-color: rgb(255, 255, 255);
   border-right: solid 1px rgb(190, 190, 190);
   display: flex;
@@ -55,7 +58,6 @@
   display: flex;
   align-items: center;
   height: 40px;
-  width: fit-content;
   padding-left: 10px;
   padding-right: 10px;
   font-size: 15px;
@@ -160,13 +162,16 @@
 }
 
 .PollsContainer {
-  height: 100%;
+  position: relative;
+  bottom: 0;
+  max-height: 100%;
+  min-height: 100vh;
   width: 100%;
   background-color: #ffffff;
   border-right: 1px solid rgb(190, 190, 190);
   box-sizing: border-box;
-  padding: 0px 0px 86px 0px;
-  overflow-y: scroll;
+  overflow-y: auto;
+  padding-top: 10px;
 }
 
 .Poll {
@@ -261,7 +266,7 @@
 
 .MapContainer {
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 60px);
 }
 
 @media (max-width: 875px) {
@@ -269,7 +274,6 @@
     margin-top: 30vh;
   }
   .FilterContainer {
-    position: sticky;
     width: 100vw;
     padding: 10px 0px 0px 0px;
   }
@@ -277,7 +281,9 @@
     width: 100%;
   }
   .PollsContainer {
+    padding-top: 0px;
     border: none;
+    border-bottom: solid 1px rgb(190, 190, 190);;
   }
   .Poll {
     border-width: 0.5px;

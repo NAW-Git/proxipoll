@@ -20,15 +20,15 @@ function PollSearch() {
 
   function generatePolls() {
     const pollTitles = [
-      [
-        "Does anyone else think that we should be able to divide by 0 in calculus?",
-        32,
-      ],
+      ["We should be able to divide by 0 in calculus, right?", 32],
       ["Is ice cream or cake better?", 12],
       ["Best burger spot in town?", 2],
       ["How old should you have to be to drive?", 45],
       ["What are the four best Marvel movies of all time?", 32],
-      ["Should healthcare be free in the United States?", 12],
+      [
+        "Should healthcare be free in the United States, what do y'all think?",
+        12,
+      ],
       ["Is this town boring?", 52],
       ["Should they build a townhall for the city?", 45],
       ["Who is the basketball goat?", 32],
@@ -48,11 +48,13 @@ function PollSearch() {
       ["Should healthcare be free in the United States?", 12],
       ["Who is the basketball goat?", 32],
       ["Is ice cream or cake better?", 12],
-      ["Best burger spot in town?", 2],
-      ["How old should you have to be to drive?", 45],
-      ["What are the four best Marvel movies of all time?", 32],
-      ["Dominos or RoundTable?", 12],
-      ["Is the end near?", 52]
+      ["Best burger spot in town?", 1],
+      ["How old should you have to be to drive?", 34],
+      ["What are the four best Marvel movies of all time?", 34],
+      ["What are the four best Marvel movies of all time?", 34],
+      ["What are the four best Marvel movies of all time?", 34],
+      ["Dominos or RoundTable?", 1],
+      ["Is the end near?", 52],
     ];
 
     const polls = pollTitles.map((title, index) => (
@@ -387,7 +389,9 @@ function PollSearch() {
             </div>
           </div>
         </div>
-        <div className="PollsContainer">{generatePolls()}</div>
+        <div style={{height: "100%"}}>
+          <div className="PollsContainer">{generatePolls()}</div>
+        </div>
       </div>
       <img className="MapContainer" src={Map} alt="Santa Cruz Map"></img>
     </div>
