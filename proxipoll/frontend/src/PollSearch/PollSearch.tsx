@@ -389,9 +389,7 @@ function PollSearch() {
             </div>
           </div>
         </div>
-        <div style={{height: "100%"}}>
-          <div className="PollsContainer">{generatePolls()}</div>
-        </div>
+        <div className="PollsContainer">{generatePolls()}</div>
       </div>
       <img className="MapContainer" src={Map} alt="Santa Cruz Map"></img>
     </div>

@@ -72,25 +72,33 @@ function App() {
           >
             <div
               className="Page"
-              onClick={() => { if (!largeView) setHeaderVisibility("hidden")}}
+              onClick={() => {
+                if (!largeView) setHeaderVisibility("hidden");
+              }}
             >
               SEARCH
             </div>
             <div
               className="Page"
-              onClick={() => { if (!largeView) setHeaderVisibility("hidden")}}
+              onClick={() => {
+                if (!largeView) setHeaderVisibility("hidden");
+              }}
             >
               POST
             </div>
             <div
               className="Page"
-              onClick={() => { if (!largeView) setHeaderVisibility("hidden")}}
+              onClick={() => {
+                if (!largeView) setHeaderVisibility("hidden");
+              }}
             >
               PROFILE
             </div>
             <div
               className="Page"
-              onClick={() => { if (!largeView) setHeaderVisibility("hidden")}}
+              onClick={() => {
+                if (!largeView) setHeaderVisibility("hidden");
+              }}
             >
               LOGOUT
             </div>

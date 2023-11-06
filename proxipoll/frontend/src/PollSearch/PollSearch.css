@@ -9,11 +9,10 @@
   justify-content: right;
   align-items: flex-start;
   position: fixed;
-  overflow-y: scroll;
 }
 
 .FilterAndPollsContainer {
-  height: 100%;
+  height: calc(100vh - 60px);
   max-width: 900px;
   position: absolute;
   left: 0;
@@ -164,14 +163,14 @@
 .PollsContainer {
   position: relative;
   bottom: 0;
-  max-height: 100%;
-  min-height: 100vh;
+  max-height: calc(100% - 64px);
   width: 100%;
   background-color: #ffffff;
   border-right: 1px solid rgb(190, 190, 190);
   box-sizing: border-box;
   overflow-y: auto;
   padding-top: 10px;
+  padding-bottom: 87px;
 }
 
 .Poll {
@@ -269,8 +268,9 @@
   height: calc(100vh - 60px);
 }
 
-@media (max-width: 875px) {
+@media (max-width: 785px) {
   .FilterAndPollsContainer {
+    max-height: calc(70vh - 112px);
     margin-top: 30vh;
   }
   .FilterContainer {
