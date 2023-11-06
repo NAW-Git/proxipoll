@@ -104,7 +104,6 @@ function App() {
             </div>
           </div>
         </header>
-        <div className="Main-page"></div>
       </div>
     </div>
   );

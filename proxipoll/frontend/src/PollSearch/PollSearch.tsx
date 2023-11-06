@@ -165,7 +165,8 @@ function PollSearch() {
                   <input
                     type="radio"
                     className="Radio"
-                    style={{ transform: "scale(140%)" }}
+                    style={{ transform: "scale(138%)" }}
+                    name="status"
                   />
                   Active
                 </li>
@@ -173,7 +174,8 @@ function PollSearch() {
                   <input
                     type="radio"
                     className="Radio"
-                    style={{ transform: "scale(140%)" }}
+                    style={{ transform: "scale(138%)" }}
+                    name="status"
                   />
                   Inactive
                 </li>
@@ -208,11 +210,19 @@ function PollSearch() {
             >
               <ul className="vertical-list">
                 <li>
-                  <CheckBox className="CheckBox" />
+                  <input
+                    type="checkbox"
+                    className="Radio"
+                    style={{ transform: "scale(138%)" }}
+                  />
                   Multiple Choice
                 </li>
                 <li>
-                  <CheckBox className="CheckBox" />
+                  <input
+                    type="checkbox"
+                    className="Radio"
+                    style={{ transform: "scale(138%)" }}
+                  />
                   Free Response
                 </li>
               </ul>
@@ -249,7 +259,8 @@ function PollSearch() {
                   <input
                     type="radio"
                     className="Radio"
-                    style={{ transform: "scale(140%)" }}
+                    style={{ transform: "scale(138%)" }}
+                    name="radius"
                   />
                   5 Miles
                 </li>
@@ -257,7 +268,8 @@ function PollSearch() {
                   <input
                     type="radio"
                     className="Radio"
-                    style={{ transform: "scale(140%)" }}
+                    style={{ transform: "scale(138%)" }}
+                    name="radius"
                   />
                   10 Miles
                 </li>
@@ -265,7 +277,8 @@ function PollSearch() {
                   <input
                     type="radio"
                     className="Radio"
-                    style={{ transform: "scale(140%)" }}
+                    style={{ transform: "scale(138%)" }}
+                    name="radius"
                   />
                   15 Miles
                 </li>
@@ -273,7 +286,8 @@ function PollSearch() {
                   <input
                     type="radio"
                     className="Radio"
-                    style={{ transform: "scale(140%)" }}
+                    style={{ transform: "scale(138%)" }}
+                    name="radius"
                   />
                   20 Miles
                 </li>
@@ -281,7 +295,8 @@ function PollSearch() {
                   <input
                     type="radio"
                     className="Radio"
-                    style={{ transform: "scale(140%)" }}
+                    style={{ transform: "scale(138%)" }}
+                    name="radius"
                   />
                   25 Miles
                 </li>
@@ -316,11 +331,19 @@ function PollSearch() {
             >
               <ul className="vertical-list">
                 <li>
-                  <CheckBox className="CheckBox" />
+                  <input
+                    type="checkbox"
+                    className="Radio"
+                    style={{ transform: "scale(138%)" }}
+                  />
                   Have Voted
                 </li>
                 <li>
-                  <CheckBox className="CheckBox" />
+                  <input
+                    type="checkbox"
+                    className="Radio"
+                    style={{ transform: "scale(138%)" }}
+                  />
                   Have Not Voted
                 </li>
               </ul>
@@ -357,7 +380,8 @@ function PollSearch() {
                   <input
                     type="radio"
                     className="Radio"
-                    style={{ transform: "scale(140%)" }}
+                    style={{ transform: "scale(138%)" }}
+                    name="sortby"
                   />
                   Newest
                 </li>
@@ -365,7 +389,8 @@ function PollSearch() {
                   <input
                     type="radio"
                     className="Radio"
-                    style={{ transform: "scale(140%)" }}
+                    style={{ transform: "scale(138%)" }}
+                    name="sortby"
                   />
                   Oldest
                 </li>
@@ -373,13 +398,25 @@ function PollSearch() {
                   <input
                     type="radio"
                     className="Radio"
-                    style={{ transform: "scale(140%)" }}
+                    style={{ transform: "scale(138%)" }}
+                    name="sortby"
                   />
                   Most Voted
                 </li>
               </ul>
               <div className="ResetUpdateContainer">
-                <div className="Reset" onClick={() => setCurrentDropdown("")}>
+                <div
+                  className="Reset"
+                  onClick={() => {
+                    const radioButtons = document.getElementsByName(
+                      "sortby"
+                    ) as NodeListOf<HTMLInputElement>;
+
+                    radioButtons.forEach((radioButton: HTMLInputElement) => {
+                      radioButton.checked = false;
+                    });
+                  }}
+                >
                   Reset
                 </div>
                 <div className="Update" onClick={() => setCurrentDropdown("")}>

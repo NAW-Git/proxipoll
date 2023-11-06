@@ -22,7 +22,7 @@ body {
   align-items: center;
   justify-content: right;
   font-size: 35px;
-  font-weight: 300;
+  font-weight: 100;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: rgb(245, 245, 245);
 }
@@ -68,15 +68,6 @@ body {
 .App-header-title:hover {
   cursor: pointer;
   opacity: 0.75;
-}
-
-.Main-page {
-  position: fixed;
-  background-color: rgb(245, 245, 245);
-  padding-top: 8vh;
-  height: 92vh;
-  width: 100vw;
-  z-index: -1;
 }
 
 @media (max-width: 875px) {

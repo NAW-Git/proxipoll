@@ -3,7 +3,7 @@
 .MainContainer {
   margin-top: 120px;
   bottom: 0;
-  max-height: calc(100vh - 60px); 
+  max-height: calc(100vh - 60px);
   width: 100vw;
   display: flex;
   justify-content: right;
@@ -76,7 +76,7 @@
 }
 
 .Dropdown {
-  border-radius: 20px;
+  border-radius: 10px;
   margin: -5px 5px 5px 5px;
   position: absolute;
   z-index: 4;
@@ -95,13 +95,13 @@
 .vertical-list li {
   display: flex;
   align-items: center;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 6px;
+  margin-bottom: 6px;
   margin-left: 15px;
 }
 
 .Radio {
-  margin: 0px 10px 0px 0px;
+  margin: 5.5px 10px 5.5px 0px;
 }
 
 .Radio:hover {
@@ -144,7 +144,7 @@
 .Update {
   border: solid 1px #1f66e0;
   font-weight: bold;
-  margin-right: 10px;
+  margin-right: 5px;
   background-color: white;
   border-radius: 5px;
   padding: 4px 9px 4px 9px;
@@ -283,7 +283,7 @@
   .PollsContainer {
     padding-top: 0px;
     border: none;
-    border-bottom: solid 1px rgb(190, 190, 190);;
+    border-bottom: solid 1px rgb(190, 190, 190);
   }
   .Poll {
     border-width: 0.5px;
