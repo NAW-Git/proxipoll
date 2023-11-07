@@ -10,11 +10,11 @@ import Map from "./Map.png";
 function PollSearch() {
   const [currentDropdown, setCurrentDropdown] = useState<string>("");
   const dropdownRefs = {
-    status: useRef<HTMLDivElement>(),
-    type: useRef<HTMLDivElement>(),
-    radius: useRef<HTMLDivElement>(),
-    voted: useRef<HTMLDivElement>(),
-    "sort by": useRef<HTMLDivElement>(),
+    status: useRef<HTMLDivElement>(null),
+    type: useRef<HTMLDivElement>(null),
+    radius: useRef<HTMLDivElement>(null),
+    voted: useRef<HTMLDivElement>(null),
+    "sort by": useRef<HTMLDivElement>(null),
   };
 
   function uncheckInputs(groupName: string, inputType: 'radio' | 'checkbox'): void {
@@ -149,7 +149,7 @@ function PollSearch() {
           <div
             className="TimeRemaining"
             style={{
-              color: title[1] > 30 ? "rgb(0, 150, 0)" : "rgb(200, 0, 0)",
+              color: Number(title[1]) > 30 ? "rgb(0, 150, 0)" : "rgb(200, 0, 0)",
             }}
           >
             {title[1]} minutes left
