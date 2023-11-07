@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CheckBox from "@mui/icons-material/CheckBox";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
@@ -9,7 +9,13 @@ import Map from "./Map.png";
 
 function PollSearch() {
   const [currentDropdown, setCurrentDropdown] = useState<string>("");
-  const dropdownRef = useRef<HTMLDivElement | null>(null);
+  const dropdownRefs = {
+    status: useRef<HTMLDivElement>(),
+    type: useRef<HTMLDivElement>(),
+    radius: useRef<HTMLDivElement>(),
+    voted: useRef<HTMLDivElement>(),
+    "sort by": useRef<HTMLDivElement>(),
+  };
 
   useEffect(() => {
     function handleResize() {
@@ -17,6 +23,24 @@ function PollSearch() {
     }
     window.addEventListener("resize", handleResize);
   }, []);
+
+  useLayoutEffect(() => {
+    function adjustDropdownPosition() {
+      console.log(currentDropdown);
+      const dropdownRef = dropdownRefs[currentDropdown];
+      if (dropdownRef === undefined) return;
+      dropdownRef.current.style.left = "0";
+      if (dropdownRef.current) {
+        const dropdownRect = dropdownRef.current.getBoundingClientRect();
+        const windowWidth = window.innerWidth;
+        if (dropdownRect.right > windowWidth) {
+          const newLeft = windowWidth - dropdownRect.right;
+          dropdownRef.current.style.left = newLeft - 1 + "px";
+        }
+      }
+    }
+    adjustDropdownPosition();
+  }, [currentDropdown]);
 
   function generatePolls() {
     const pollTitles = [
@@ -155,7 +179,7 @@ function PollSearch() {
             </div>
             <div
               className="Dropdown"
-              ref={dropdownRef}
+              ref={dropdownRefs["status"]}
               style={{
                 display: currentDropdown === "status" ? "block" : "none",
               }}
@@ -203,7 +227,7 @@ function PollSearch() {
             </div>
             <div
               className="Dropdown"
-              ref={dropdownRef}
+              ref={dropdownRefs["type"]}
               style={{
                 display: currentDropdown === "type" ? "block" : "none",
               }}
@@ -249,7 +273,7 @@ function PollSearch() {
             </div>
             <div
               className="Dropdown"
-              ref={dropdownRef}
+              ref={dropdownRefs["radius"]}
               style={{
                 display: currentDropdown === "radius" ? "block" : "none",
               }}
@@ -324,7 +348,7 @@ function PollSearch() {
             </div>
             <div
               className="Dropdown"
-              ref={dropdownRef}
+              ref={dropdownRefs["voted"]}
               style={{
                 display: currentDropdown === "voted" ? "block" : "none",
               }}
@@ -370,7 +394,7 @@ function PollSearch() {
             </div>
             <div
               className="Dropdown"
-              ref={dropdownRef}
+              ref={dropdownRefs["sort by"]}
               style={{
                 display: currentDropdown === "sort by" ? "block" : "none",
               }}
