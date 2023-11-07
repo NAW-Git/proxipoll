@@ -49,7 +49,6 @@ function App() {
             : setHeaderVisibility("visible")
         }
       ></div>
-      <PollSearch></PollSearch>
       <div>
         <header className="App-header">
           <div className="App-header-title">
@@ -104,6 +103,7 @@ function App() {
             </div>
           </div>
         </header>
+        <PollSearch></PollSearch>
       </div>
     </div>
   );

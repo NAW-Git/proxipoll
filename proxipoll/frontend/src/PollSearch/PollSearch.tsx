@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import CheckBox from "@mui/icons-material/CheckBox";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import ReportIcon from "@mui/icons-material/Report";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -17,14 +16,18 @@ function PollSearch() {
     "sort by": useRef<HTMLDivElement>(null),
   };
 
-  function uncheckInputs(groupName: string, inputType: 'radio' | 'checkbox'): void {
-    const inputs = document.querySelectorAll(`input[type="${inputType}"][name="${groupName}"]`) as NodeListOf<HTMLInputElement>;
+  function uncheckInputs(
+    groupName: string,
+    inputType: "radio" | "checkbox"
+  ): void {
+    const inputs = document.querySelectorAll(
+      `input[type="${inputType}"][name="${groupName}"]`
+    ) as NodeListOf<HTMLInputElement>;
     inputs.forEach((input) => {
       input.checked = false;
     });
-    setCurrentDropdown("")
+    setCurrentDropdown("");
   }
-  
 
   useEffect(() => {
     function handleResize() {
@@ -149,7 +152,8 @@ function PollSearch() {
           <div
             className="TimeRemaining"
             style={{
-              color: Number(title[1]) > 30 ? "rgb(0, 150, 0)" : "rgb(200, 0, 0)",
+              color:
+                Number(title[1]) > 30 ? "rgb(0, 150, 0)" : "rgb(200, 0, 0)",
             }}
           >
             {title[1]} minutes left
@@ -184,7 +188,16 @@ function PollSearch() {
                 borderColor: "transparent",
               }}
             >
-              Status <KeyboardArrowDownIcon />
+              Status{" "}
+              <KeyboardArrowDownIcon
+                style={{
+                  transition: "transform 0.1s",
+                  transform:
+                    currentDropdown === "status"
+                      ? "rotate(0deg)"
+                      : "rotate(-90deg)",
+                }}
+              />
             </div>
             <div
               className="Dropdown"
@@ -214,7 +227,10 @@ function PollSearch() {
                 </li>
               </ul>
               <div className="ResetUpdateContainer">
-                <div className="Reset" onClick={() => uncheckInputs("status", "radio")}>
+                <div
+                  className="Reset"
+                  onClick={() => uncheckInputs("status", "radio")}
+                >
                   Reset
                 </div>
                 <div className="Update" onClick={() => setCurrentDropdown("")}>
@@ -232,7 +248,16 @@ function PollSearch() {
                   : setCurrentDropdown("type")
               }
             >
-              Type <KeyboardArrowDownIcon />
+              Type{" "}
+              <KeyboardArrowDownIcon
+                style={{
+                  transition: "transform 0.1s",
+                  transform:
+                    currentDropdown === "type"
+                      ? "rotate(0deg)"
+                      : "rotate(-90deg)",
+                }}
+              />
             </div>
             <div
               className="Dropdown"
@@ -262,7 +287,10 @@ function PollSearch() {
                 </li>
               </ul>
               <div className="ResetUpdateContainer">
-                <div className="Reset" onClick={() => uncheckInputs("type", "checkbox")}>
+                <div
+                  className="Reset"
+                  onClick={() => uncheckInputs("type", "checkbox")}
+                >
                   Reset
                 </div>
                 <div className="Update" onClick={() => setCurrentDropdown("")}>
@@ -280,7 +308,16 @@ function PollSearch() {
                   : setCurrentDropdown("radius")
               }
             >
-              Radius <KeyboardArrowDownIcon />
+              Radius{" "}
+              <KeyboardArrowDownIcon
+                style={{
+                  transition: "transform 0.1s",
+                  transform:
+                    currentDropdown === "radius"
+                      ? "rotate(0deg)"
+                      : "rotate(-90deg)",
+                }}
+              />
             </div>
             <div
               className="Dropdown"
@@ -337,7 +374,10 @@ function PollSearch() {
                 </li>
               </ul>
               <div className="ResetUpdateContainer">
-                <div className="Reset" onClick={() => uncheckInputs("radius", "radio")}>
+                <div
+                  className="Reset"
+                  onClick={() => uncheckInputs("radius", "radio")}
+                >
                   Reset
                 </div>
                 <div className="Update" onClick={() => setCurrentDropdown("")}>
@@ -355,7 +395,16 @@ function PollSearch() {
                   : setCurrentDropdown("voted")
               }
             >
-              Voted <KeyboardArrowDownIcon />
+              Voted{" "}
+              <KeyboardArrowDownIcon
+                style={{
+                  transition: "transform 0.1s",
+                  transform:
+                    currentDropdown === "voted"
+                      ? "rotate(0deg)"
+                      : "rotate(-90deg)",
+                }}
+              />
             </div>
             <div
               className="Dropdown"
@@ -385,7 +434,10 @@ function PollSearch() {
                 </li>
               </ul>
               <div className="ResetUpdateContainer">
-                <div className="Reset" onClick={() => uncheckInputs("voted", "checkbox")}>
+                <div
+                  className="Reset"
+                  onClick={() => uncheckInputs("voted", "checkbox")}
+                >
                   Reset
                 </div>
                 <div className="Update" onClick={() => setCurrentDropdown("")}>
@@ -403,7 +455,16 @@ function PollSearch() {
                   : setCurrentDropdown("sort by")
               }
             >
-              Sort By <KeyboardArrowDownIcon />
+              Sort By{" "}
+              <KeyboardArrowDownIcon
+                style={{
+                  transition: "transform 0.1s",
+                  transform:
+                    currentDropdown === "sort by"
+                      ? "rotate(0deg)"
+                      : "rotate(-90deg)",
+                }}
+              />
             </div>
             <div
               className="Dropdown"
