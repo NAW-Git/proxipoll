@@ -17,6 +17,15 @@ function PollSearch() {
     "sort by": useRef<HTMLDivElement>(),
   };
 
+  function uncheckInputs(groupName: string, inputType: 'radio' | 'checkbox'): void {
+    const inputs = document.querySelectorAll(`input[type="${inputType}"][name="${groupName}"]`) as NodeListOf<HTMLInputElement>;
+    inputs.forEach((input) => {
+      input.checked = false;
+    });
+    setCurrentDropdown("")
+  }
+  
+
   useEffect(() => {
     function handleResize() {
       setCurrentDropdown("");
@@ -205,7 +214,7 @@ function PollSearch() {
                 </li>
               </ul>
               <div className="ResetUpdateContainer">
-                <div className="Reset" onClick={() => setCurrentDropdown("")}>
+                <div className="Reset" onClick={() => uncheckInputs("status", "radio")}>
                   Reset
                 </div>
                 <div className="Update" onClick={() => setCurrentDropdown("")}>
@@ -238,6 +247,7 @@ function PollSearch() {
                     type="checkbox"
                     className="Radio"
                     style={{ transform: "scale(138%)" }}
+                    name="type"
                   />
                   Multiple Choice
                 </li>
@@ -246,12 +256,13 @@ function PollSearch() {
                     type="checkbox"
                     className="Radio"
                     style={{ transform: "scale(138%)" }}
+                    name="type"
                   />
                   Free Response
                 </li>
               </ul>
               <div className="ResetUpdateContainer">
-                <div className="Reset" onClick={() => setCurrentDropdown("")}>
+                <div className="Reset" onClick={() => uncheckInputs("type", "checkbox")}>
                   Reset
                 </div>
                 <div className="Update" onClick={() => setCurrentDropdown("")}>
@@ -326,7 +337,7 @@ function PollSearch() {
                 </li>
               </ul>
               <div className="ResetUpdateContainer">
-                <div className="Reset" onClick={() => setCurrentDropdown("")}>
+                <div className="Reset" onClick={() => uncheckInputs("radius", "radio")}>
                   Reset
                 </div>
                 <div className="Update" onClick={() => setCurrentDropdown("")}>
@@ -359,6 +370,7 @@ function PollSearch() {
                     type="checkbox"
                     className="Radio"
                     style={{ transform: "scale(138%)" }}
+                    name="voted"
                   />
                   Have Voted
                 </li>
@@ -367,12 +379,13 @@ function PollSearch() {
                     type="checkbox"
                     className="Radio"
                     style={{ transform: "scale(138%)" }}
+                    name="voted"
                   />
                   Have Not Voted
                 </li>
               </ul>
               <div className="ResetUpdateContainer">
-                <div className="Reset" onClick={() => setCurrentDropdown("")}>
+                <div className="Reset" onClick={() => uncheckInputs("voted", "checkbox")}>
                   Reset
                 </div>
                 <div className="Update" onClick={() => setCurrentDropdown("")}>
@@ -431,15 +444,7 @@ function PollSearch() {
               <div className="ResetUpdateContainer">
                 <div
                   className="Reset"
-                  onClick={() => {
-                    const radioButtons = document.getElementsByName(
-                      "sortby"
-                    ) as NodeListOf<HTMLInputElement>;
-
-                    radioButtons.forEach((radioButton: HTMLInputElement) => {
-                      radioButton.checked = false;
-                    });
-                  }}
+                  onClick={() => uncheckInputs("sortby", "radio")}
                 >
                   Reset
                 </div>
