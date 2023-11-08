@@ -70,7 +70,7 @@ body {
   opacity: 0.75;
 }
 
-@media (max-width: 815px) {
+@media (max-width: 860px) {
   .App-header-menu-icon {
     visibility: visible;
   }

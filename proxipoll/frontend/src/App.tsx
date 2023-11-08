@@ -23,7 +23,7 @@ function App() {
 
   useEffect(() => {
     function handleResize() {
-      if (window.innerWidth > 815) {
+      if (window.innerWidth > 860) {
         setHeaderVisibility("visible");
         setLargeView(true);
       } else {

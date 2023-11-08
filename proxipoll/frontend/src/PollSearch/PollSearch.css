@@ -31,7 +31,7 @@
   padding: 10px 20px 0px 20px;
   box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.3);
   z-index: 2;
-  max-width: 815px;
+  max-width: 860px;
 }
 
 .SearchContainer {
@@ -85,7 +85,9 @@
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 40px;
+  width: 80px;
   padding-left: 10px;
   padding-right: 10px;
   font-size: 15px;
@@ -300,8 +302,9 @@
   height: calc(100vh - 60px);
 }
 
-@media (max-width: 815px) {
+@media (max-width: 860px) {
   .FilterAndPollsContainer {
+    border-top: solid 0.5px BLACK;
     max-height: calc(70vh - 112px);
     margin-top: 30vh;
   }
@@ -309,6 +312,7 @@
     width: 100vw;
     padding: 10px 0px 0px 0px;
     border-right: none;
+    border-BOTTOM: solid 0.5px BLACK;
   }
   .PollsContainer {
     padding-top: 0px;
@@ -327,7 +331,7 @@
     border-color: rgb(190, 190, 190);
   }
   .SearchContainer {
-    max-width: 350px;
+    max-width: 335px;
     width: 95%;
   }
 }
