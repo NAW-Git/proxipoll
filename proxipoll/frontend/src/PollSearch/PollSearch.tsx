@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import SearchIcon from "@mui/icons-material/Search";
 import ReportIcon from "@mui/icons-material/Report";
 import DeleteIcon from "@mui/icons-material/Delete";
 import "./PollSearch.css";
@@ -16,12 +17,9 @@ function PollSearch() {
     "sort by": useRef<HTMLDivElement>(null),
   };
 
-  function uncheckInputs(
-    groupName: string,
-    inputType: "radio" | "checkbox"
-  ): void {
+  function uncheckInputs(groupName: string): void {
     const inputs = document.querySelectorAll(
-      `input[type="${inputType}"][name="${groupName}"]`
+      `input[name="${groupName}"]`
     ) as NodeListOf<HTMLInputElement>;
     inputs.forEach((input) => {
       input.checked = false;
@@ -34,6 +32,9 @@ function PollSearch() {
       setCurrentDropdown("");
     }
     window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   useLayoutEffect(() => {
@@ -168,12 +169,17 @@ function PollSearch() {
     <div className="MainContainer">
       <div className="FilterAndPollsContainer">
         <div className="FilterContainer">
-          <input
-            className="SearchBar"
-            type="text"
-            placeholder="Search"
-            onClick={() => setCurrentDropdown("")}
-          ></input>
+          <div className="SearchContainer">
+            <input
+              className="SearchBar"
+              type="text"
+              placeholder="Search"
+              onClick={() => setCurrentDropdown("")}
+            ></input>
+            <button className="SearchButton">
+              <SearchIcon style={{ transform: "scale(115%)" }} />
+            </button>
+          </div>
           <div className="ToggleContainer">
             <div
               className="Toggle"
@@ -227,10 +233,7 @@ function PollSearch() {
                 </li>
               </ul>
               <div className="ResetUpdateContainer">
-                <div
-                  className="Reset"
-                  onClick={() => uncheckInputs("status", "radio")}
-                >
+                <div className="Reset" onClick={() => uncheckInputs("status")}>
                   Reset
                 </div>
                 <div className="Update" onClick={() => setCurrentDropdown("")}>
@@ -287,10 +290,7 @@ function PollSearch() {
                 </li>
               </ul>
               <div className="ResetUpdateContainer">
-                <div
-                  className="Reset"
-                  onClick={() => uncheckInputs("type", "checkbox")}
-                >
+                <div className="Reset" onClick={() => uncheckInputs("type")}>
                   Reset
                 </div>
                 <div className="Update" onClick={() => setCurrentDropdown("")}>
@@ -374,10 +374,7 @@ function PollSearch() {
                 </li>
               </ul>
               <div className="ResetUpdateContainer">
-                <div
-                  className="Reset"
-                  onClick={() => uncheckInputs("radius", "radio")}
-                >
+                <div className="Reset" onClick={() => uncheckInputs("radius")}>
                   Reset
                 </div>
                 <div className="Update" onClick={() => setCurrentDropdown("")}>
@@ -416,7 +413,7 @@ function PollSearch() {
               <ul className="vertical-list">
                 <li>
                   <input
-                    type="checkbox"
+                    type="radio"
                     className="Radio"
                     style={{ transform: "scale(138%)" }}
                     name="voted"
@@ -425,7 +422,7 @@ function PollSearch() {
                 </li>
                 <li>
                   <input
-                    type="checkbox"
+                    type="radio"
                     className="Radio"
                     style={{ transform: "scale(138%)" }}
                     name="voted"
@@ -434,10 +431,7 @@ function PollSearch() {
                 </li>
               </ul>
               <div className="ResetUpdateContainer">
-                <div
-                  className="Reset"
-                  onClick={() => uncheckInputs("voted", "checkbox")}
-                >
+                <div className="Reset" onClick={() => uncheckInputs("voted")}>
                   Reset
                 </div>
                 <div className="Update" onClick={() => setCurrentDropdown("")}>
@@ -503,10 +497,7 @@ function PollSearch() {
                 </li>
               </ul>
               <div className="ResetUpdateContainer">
-                <div
-                  className="Reset"
-                  onClick={() => uncheckInputs("sortby", "radio")}
-                >
+                <div className="Reset" onClick={() => uncheckInputs("sortby")}>
                   Reset
                 </div>
                 <div className="Update" onClick={() => setCurrentDropdown("")}>

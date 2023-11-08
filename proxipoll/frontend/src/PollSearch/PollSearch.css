@@ -1,7 +1,7 @@
 /* Why can't you see last poll, make it so dropdown goes on page, finalize design, clean code*/
 
 .MainContainer {
-  margin-top: 120px;
+  margin-top: 60px;
   bottom: 0;
   max-height: calc(100vh - 60px);
   width: 100vw;
@@ -31,18 +31,47 @@
   padding: 10px 20px 0px 20px;
   box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.3);
   z-index: 2;
+  max-width: 815px;
+}
+
+.SearchContainer {
+  display: flex;
 }
 
 .SearchBar {
-  margin: 0px 5px 0px 5px;
+  all: unset;
+  margin: 0px 0px 10px 5px;
   height: 40px;
-  max-width: 300px;
-  border-radius: 10px;
+  border-radius: 10px 0px 0px 10px;
   padding-left: 10px;
   border: solid 1px black;
   font-size: 20px;
-  margin-bottom: 10px;
+  border-width: 1px 0px 1px 1px;
+  width: 75%;
 }
+
+.SearchButton {
+  all: unset;
+  padding-top: 4px;
+  height: 36px;
+  width: 25%;
+  background-color: #1f66e0;
+  border-radius: 0px 10px 10px 0px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  border: solid 1px black;
+  border-width: 1px 1px 1px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  transition: all 0.1s;
+}
+
+.SearchButton:hover {
+  cursor: pointer;
+  filter: brightness(1.25);
+  }
 
 .SearchBar:focus {
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.4);
@@ -76,6 +105,7 @@
 }
 
 .Dropdown {
+  max-width: 98vw;
   border-radius: 10px;
   margin: -5px 5px 5px 5px;
   position: absolute;
@@ -118,6 +148,7 @@
 }
 
 .ResetUpdateContainer {
+  max-width: 98vw;
   width: 275px;
   height: 40px;
   border-radius: 0px 0px 20px 20px;
@@ -163,14 +194,15 @@
 .PollsContainer {
   position: relative;
   bottom: 0;
-  max-height: calc(100% - 64px);
+  max-height: 100%;
+  min-height: 100vh;
   width: 100%;
   background-color: #ffffff;
   border-right: 1px solid rgb(190, 190, 190);
   box-sizing: border-box;
   overflow-y: auto;
   padding-top: 10px;
-  padding-bottom: 110px;
+  padding-bottom: 500px;
 }
 
 .Poll {
@@ -268,7 +300,7 @@
   height: calc(100vh - 60px);
 }
 
-@media (max-width: 785px) {
+@media (max-width: 815px) {
   .FilterAndPollsContainer {
     max-height: calc(70vh - 112px);
     margin-top: 30vh;
@@ -276,9 +308,7 @@
   .FilterContainer {
     width: 100vw;
     padding: 10px 0px 0px 0px;
-  }
-  .SearchBar {
-    width: 100%;
+    border-right: none;
   }
   .PollsContainer {
     padding-top: 0px;
@@ -295,5 +325,9 @@
     border-radius: 0px;
     box-shadow: none;
     border-color: rgb(190, 190, 190);
+  }
+  .SearchContainer {
+    max-width: 350px;
+    width: 95%;
   }
 }
