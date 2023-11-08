@@ -52,7 +52,7 @@ function App() {
       <div>
         <header className="App-header">
           <div className="App-header-title">
-            {testData == 13 ? "ProxiPoll" : "ProxiPoll."}
+            {testData == 13 ? "ProxiPoll" : "ProxiPoll.."}
           </div>
           <MenuIcon
             className="App-header-menu-icon"
