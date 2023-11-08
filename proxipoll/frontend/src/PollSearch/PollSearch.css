@@ -1,146 +1,333 @@
+/* Why can't you see last poll, make it so dropdown goes on page, finalize design, clean code*/
+
 .MainContainer {
-    margin-top: 120px;
-    bottom: 0;
-    height: calc(100vh - 60px);
-    width: 100vw;
-    display: flex;
-    justify-content: right;
-    align-items: flex-start;
-    position: fixed;
+  margin-top: 60px;
+  bottom: 0;
+  max-height: calc(100vh - 60px);
+  width: 100vw;
+  display: flex;
+  justify-content: right;
+  align-items: flex-start;
+  position: fixed;
+}
+
+.FilterAndPollsContainer {
+  height: calc(100vh - 60px);
+  max-width: 900px;
+  position: absolute;
+  left: 0;
+  z-index: 2;
 }
 
 .FilterContainer {
-    position: sticky;
-    top: 0;
-    min-height: 60px;
-    background-color: rgb(255, 255, 255);
-    border-bottom: solid 1px rgb(190, 190, 190);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
+  top: 0;
+  position: sticky;
+  background-color: rgb(255, 255, 255);
+  border-right: solid 1px rgb(190, 190, 190);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px 20px 0px 20px;
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+  max-width: 815px;
+}
+
+.SearchContainer {
+  display: flex;
 }
 
 .SearchBar {
-    height: 40px;
-    width: 325px;
-    border-radius: 10px;
-    padding-left: 10px;
-    border: solid 1px black;
-    font-size: 20px;
-    margin-bottom: 10px;
+  all: unset;
+  margin: 0px 0px 10px 5px;
+  height: 40px;
+  border-radius: 10px 0px 0px 10px;
+  padding-left: 10px;
+  border: solid 1px black;
+  font-size: 20px;
+  border-width: 1px 0px 1px 1px;
+  width: 75%;
 }
 
-.SearchBar:focus {
-    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.6);
+.SearchButton {
+  all: unset;
+  padding-top: 4px;
+  height: 36px;
+  width: 25%;
+  background-color: #1f66e0;
+  border-radius: 0px 10px 10px 0px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  border: solid 1px black;
+  border-width: 1px 1px 1px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  transition: all 0.1s;
+}
+
+.SearchButton:hover {
+  cursor: pointer;
+  filter: brightness(1.25);
   }
 
+.SearchBar:focus {
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.4);
+}
+
+.ToggleContainer {
+  position: relative;
+}
+
 .Toggle {
-    display: flex;
-    align-items: center;
-    height: 40px;
-    width: fit-content;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: 15px;
-    font-weight: bold;
-    line-height: 40px;
-    border-radius: 20px;
-    border: solid 1px rgb(190, 190, 190);
-    margin: 0px 5px 10px 5px;
-    transition: background-color 0.2s, border-color 0.2s;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 40px;
+  border-radius: 20px;
+  border: solid 1px rgb(190, 190, 190);
+  margin: 0px 5px 10px 5px;
+  transition: background-color 0.2s, border-color 0.2s;
+  background-color: white;
 }
 
 .Toggle:hover {
-    cursor: pointer;
-    background-color: rgb(248, 248, 248);
-    border-color: black;
+  cursor: pointer;
+  background-color: rgb(248, 248, 248);
+  border-color: black;
+}
+
+.Dropdown {
+  max-width: 98vw;
+  border-radius: 10px;
+  margin: -5px 5px 5px 5px;
+  position: absolute;
+  z-index: 4;
+  background-color: white;
+  width: 275px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
+  border: solid 1px rgb(190, 190, 190);
+}
+
+.vertical-list {
+  list-style: none;
+  padding: 0px;
+  margin: 10px 0px 0px 0px;
+}
+
+.vertical-list li {
+  display: flex;
+  align-items: center;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  margin-left: 15px;
+}
+
+.Radio {
+  margin: 5.5px 10px 5.5px 0px;
+}
+
+.Radio:hover {
+  cursor: pointer;
+}
+
+.CheckBox {
+  color: #1f66e0;
+  margin-right: 5px;
+}
+
+.CheckBox:hover {
+  cursor: pointer;
+}
+
+.ResetUpdateContainer {
+  max-width: 98vw;
+  width: 275px;
+  height: 40px;
+  border-radius: 0px 0px 20px 20px;
+  border-top: solid 1px rgb(190, 190, 190);
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  color: grey;
+}
+
+.Reset {
+  font-weight: bold;
+  margin-right: 15px;
+}
+
+.Reset:hover {
+  cursor: pointer;
+  background-color: rgb(236, 236, 236);
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px;
+  margin-right: 5px;
+}
+
+.Update {
+  border: solid 1px #1f66e0;
+  font-weight: bold;
+  margin-right: 5px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 4px 9px 4px 9px;
+  color: #1f66e0;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.Update:hover {
+  border: solid 1px #1f66e0;
+  cursor: pointer;
+  background-color: #1f66e0;
+  color: white;
+  transition: background-color 0.2s, color 0.2s;
 }
 
 .PollsContainer {
-    position: absolute;
-    left: 0;
-    height: 100%;
-    min-width: calc(100vw - 800px);
-    background-color: white;
-    border: 1px solid rgb(190, 190, 190);
-    overflow-y: scroll;
-    padding: 0px 0px 0px 0px;
+  position: relative;
+  bottom: 0;
+  max-height: 100%;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #ffffff;
+  border-right: 1px solid rgb(190, 190, 190);
+  box-sizing: border-box;
+  overflow-y: auto;
+  padding-top: 10px;
+  padding-bottom: 500px;
 }
 
 .Poll {
-    max-width: 650px;
-    padding-left: 10px;
-    padding-right: 10px;
-    background-color: white;
-    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.4);
-    border: 1px solid transparent;
-    border-radius: 5px;
-    margin: 20px auto;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    transition: background-color 0.2s, border-color 0.2s;
+  position: relative;
+  max-width: 650px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: white;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.4);
+  border: 1px solid transparent;
+  border-radius: 15px;
+  margin: 18px auto;
+  text-overflow: ellipsis;
+  transition: background-color 0.2s, border-color 0.2s;
 }
 
 .Poll:hover {
-    background-color: rgb(248, 248, 248);
-    cursor: pointer;
-    border-color: black;
+  background-color: rgb(248, 248, 248);
+  cursor: pointer;
+  border-color: rgb(190, 190, 190);
 }
 
 .PollPoster {
-    font-size: 15px;
-    line-height: 30px;
-    color: rgb(125, 125, 125);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 15px;
+  line-height: 30px;
+  color: rgb(125, 125, 125);
+}
+
+.PollMoreIcon {
+  background-color: rgba(225, 225, 225, 0);
+  transition: background-color 0.2s;
+  transform: scale(110%);
+}
+
+.PollMoreIcon:hover {
+  background-color: rgb(225, 225, 225);
+  border-radius: 5px;
+  transition: background-color 0.2s;
+}
+
+.PollDropdown {
+  z-index: 1;
+  position: absolute;
+  background-color: white;
+  top: 0;
+  right: 0;
+  line-height: 15px;
+  margin-right: 9px;
+  margin-top: 28px;
+  border-radius: 5px;
+  border: solid 1px rgb(190, 190, 190);
+  font-size: 18px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.6);
+}
+
+.PollOption {
+  height: 35px;
+  display: flex;
+  align-items: center;
+  color: rgb(125, 125, 125);
+  border-radius: 4px;
+  padding-left: 10px;
+  padding-right: 15px;
+}
+
+.PollOption:hover {
+  background-color: rgb(235, 245, 245);
+  color: black;
+}
+
+.OptionBorder {
+  height: 1px;
+  width: 100%;
+  background-color: rgb(190, 190, 190);
 }
 
 .PollQuestion {
-    font-weight: 500;
-    font-size: 25px;
-    line-height: 25px;
+  padding-right: 20px;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 25px;
 }
 
 .TimeRemaining {
-    font-size: 15px;
-    line-height: 30px;
-    color:rgb(200, 0, 0);
+  font-size: 15px;
+  line-height: 30px;
+  color: rgb(200, 0, 0);
 }
 
 .MapContainer {
-    width: 800px;
-    height: 100%;
-    border: 1px solid rgb(190, 190, 190);
-    border-left: none;
+  width: 100%;
+  height: calc(100vh - 60px);
 }
 
-@media (max-width: 800px) {
-    .FilterContainer {
-        width: calc(100vw - 20px);
-    }
-    .PollsContainer {
-        max-width: 100vw;
-        bottom: 0;
-        height: 400px;
-        max-height: 60vh;
-        width: 100%;
-        border-left: none;
-        padding: 0px 0px 0px 0px;
-    }
-    .Poll {
-        max-width: 100vw;
-        width: calc(100vw - 20px);
-        border-left: none;
-        border-right: none;
-        margin: 0px 0px 0px 0px;
-        border-radius: 0px;
-        box-shadow: none;
-        border-color: rgb(190, 190, 190);
-    }
-    .MapContainer {
-        width: 100vw;
-        border-bottom: none;
-    }
+@media (max-width: 815px) {
+  .FilterAndPollsContainer {
+    max-height: calc(70vh - 112px);
+    margin-top: 30vh;
+  }
+  .FilterContainer {
+    width: 100vw;
+    padding: 10px 0px 0px 0px;
+    border-right: none;
+  }
+  .PollsContainer {
+    padding-top: 0px;
+    border: none;
+    border-bottom: solid 1px rgb(190, 190, 190);
+  }
+  .Poll {
+    border-width: 0.5px;
+    max-width: 100vw;
+    width: calc(100vw - 20px);
+    border-left: none;
+    border-right: none;
+    margin: 0px 0px 0px 0px;
+    border-radius: 0px;
+    box-shadow: none;
+    border-color: rgb(190, 190, 190);
+  }
+  .SearchContainer {
+    max-width: 350px;
+    width: 95%;
+  }
 }

@@ -1,5 +1,15 @@
 body {
   background-color: white;
+  position: fixed;
+}
+
+.PageDimmer {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+  background-color: black;
+  opacity: 0.66;
 }
 
 .App-header {
@@ -12,14 +22,13 @@ body {
   align-items: center;
   justify-content: right;
   font-size: 35px;
-  font-weight: 300;
+  font-weight: 100;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: rgb(245, 245, 245);
 }
 
 .PagesContainer {
   z-index: 1;
-  top: -25vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,7 +36,6 @@ body {
   font-weight: 300;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin-right: 10px;
-  transition: top 0.3s ease-in-out;
 }
 
 .Page {
@@ -62,16 +70,7 @@ body {
   opacity: 0.75;
 }
 
-.Main-page {
-  position: fixed;
-  background-color: rgb(245, 245, 245);
-  padding-top: 8vh;
-  height: 92vh;
-  width: 100vw;
-  z-index: -1;
-}
-
-@media (max-width: 800px) {
+@media (max-width: 815px) {
   .App-header-menu-icon {
     visibility: visible;
   }
@@ -80,17 +79,18 @@ body {
     background-color: rgb(255, 255, 255);
     position: fixed;
     min-width: 100vw;
-    min-height: 25vh;
+    min-height: 20vh;
     top: 60px;
     display: block;
     flex-direction: column;
     text-align: left;
     color: black;
     margin: 0px 0px 0px 0px;
-    border-left: solid 1px black;
-    border-bottom: solid 1px black;
+    border-bottom: solid 1px rgb(190, 190, 190);
+    border-radius: 0px 0px 20px 20px;
     padding-top: 10px;
     font-size: 20px;
+    /* transition: opacity 0.5s; */
   }
   .Page {
     margin: 0px 0px 0px 0px;
