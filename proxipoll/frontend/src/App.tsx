@@ -74,35 +74,38 @@ function App() {
             opacity: headerVisibility === "visible" ? 1 : 0,
           }}
         >
-          <Link
-            style={{ textDecoration: "none", color: "white" }}
-            to="/Search"
-            className="Page"
-            onClick={() => {
-              if (!largeView) setHeaderVisibility("hidden");
-            }}
-          >
-            SEARCH
+          <Link to="/Search" style={{ textDecoration: "none" }}>
+            <div
+              style={{ color: largeView === true ? "white" : "black" }}
+              className="Page"
+              onClick={() => {
+                if (!largeView) setHeaderVisibility("hidden");
+              }}
+            >
+              SEARCH
+            </div>
           </Link>
-          <Link
-            style={{ textDecoration: "none", color: "white" }}
-            to="/Create"
-            className="Page"
-            onClick={() => {
-              if (!largeView) setHeaderVisibility("hidden");
-            }}
-          >
-            CREATE
+          <Link to="/Create" style={{ textDecoration: "none" }}>
+            <div
+              style={{ color: largeView === true ? "white" : "black" }}
+              className="Page"
+              onClick={() => {
+                if (!largeView) setHeaderVisibility("hidden");
+              }}
+            >
+              CREATE
+            </div>
           </Link>
-          <Link
-            style={{ textDecoration: "none", color: "white" }}
-            to="/Search"
-            className="Page"
-            onClick={() => {
-              if (!largeView) setHeaderVisibility("hidden");
-            }}
-          >
-            LOGOUT
+          <Link to="/Search" style={{ textDecoration: "none" }}>
+            <div
+              className="Page"
+              style={{ color: largeView === true ? "white" : "black" }}
+              onClick={() => {
+                if (!largeView) setHeaderVisibility("hidden");
+              }}
+            >
+              LOGOUT
+            </div>
           </Link>
         </div>
       </header>

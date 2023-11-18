@@ -41,20 +41,18 @@ function PollPost() {
             ></div>
             <div
               className="Type"
-              id="MC"
               onClick={() => setPollType("MC")}
               style={{
-                color: pollType === "MC" ? "white" : "gray",
+                color: pollType === "MC" ? "black" : "gray",
               }}
             >
               Multiple Choice
             </div>
             <div
               className="Type"
-              id="FR"
               onClick={() => setPollType("FR")}
               style={{
-                color: pollType === "FR" ? "white" : "gray",
+                color: pollType === "FR" ? "black" : "gray",
               }}
             >
               Free Response
@@ -79,20 +77,18 @@ function PollPost() {
             ></div>
             <div
               className="Type"
-              id="Public"
               onClick={() => setNameDisplay("Public")}
               style={{
-                color: nameDisplay === "Public" ? "white" : "gray",
+                color: nameDisplay === "Public" ? "black" : "gray",
               }}
             >
               Public
             </div>
             <div
               className="Type"
-              id="Anonymous"
               onClick={() => setNameDisplay("Anonymous")}
               style={{
-                color: nameDisplay === "Anonymous" ? "white" : "gray",
+                color: nameDisplay === "Anonymous" ? "black" : "gray",
               }}
             >
               Anonymous

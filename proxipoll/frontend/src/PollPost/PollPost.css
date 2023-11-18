@@ -124,7 +124,7 @@
   height: 43px;
   width: 50%;
   border-radius: 5px 0px 0px 5px;
-  transition: transform 0.15s linear, color 0.15s;
+  transition: transform 0.2s ease-in-out, color 0.2s;
 }
 
 #TypeSection {
@@ -153,26 +153,6 @@
 
 .Type:hover {
   cursor: pointer;
-}
-
-#MC {
-  border-right: solid 0.5px black;
-  border-radius: 4px 0px 0px 4px;
-}
-
-#FR {
-  border-left: solid 0.5px black;
-  border-radius: 0px 4px 4px 0px;
-}
-
-#Public {
-  border-right: solid 0.5px black;
-  border-radius: 4px 0px 0px 4px;
-}
-
-#Anonymous {
-  border-left: solid 0.5px black;
-  border-radius: 0px 4px 4px 0px;
 }
 
 .Choice {

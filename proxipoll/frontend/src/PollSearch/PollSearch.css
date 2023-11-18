@@ -300,6 +300,8 @@
 .MapContainer {
   width: 100%;
   height: calc(100vh - 60px);
+  background-image: url("Map.png");
+  background-size: cover;
 }
 
 @media (max-width: 860px) {
