@@ -9,11 +9,11 @@ body {
   width: 100vw;
   z-index: 1;
   background-color: black;
-  opacity: 0.66;
+  opacity: 0.4;
 }
 
 .App-header {
-  z-index: 2;
+  z-index: 3;
   position: fixed;
   background-color: #1f66e0;
   height: 60px;
@@ -70,7 +70,7 @@ body {
   opacity: 0.75;
 }
 
-@media (max-width: 815px) {
+@media (max-width: 860px) {
   .App-header-menu-icon {
     visibility: visible;
   }

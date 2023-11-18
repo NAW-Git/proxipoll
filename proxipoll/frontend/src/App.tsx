@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import PollSearch from "./PollSearch/PollSearch";
+import PollPost from "./PollPost/PollPost";
 import "./App.css";
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
 
   useEffect(() => {
     function handleResize() {
-      if (window.innerWidth > 815) {
+      if (window.innerWidth > 860) {
         setHeaderVisibility("visible");
         setLargeView(true);
       } else {
@@ -52,7 +53,7 @@ function App() {
       <div>
         <header className="App-header">
           <div className="App-header-title">
-            {testData == 13 ? "ProxiPoll" : "ProxiPoll.."}
+            {testData == 13 ? "ProxiPoll" : "ProxiPoll"}
           </div>
           <MenuIcon
             className="App-header-menu-icon"
@@ -83,7 +84,7 @@ function App() {
                 if (!largeView) setHeaderVisibility("hidden");
               }}
             >
-              POST
+              CREATE
             </div>
             <div
               className="Page"
@@ -103,7 +104,8 @@ function App() {
             </div>
           </div>
         </header>
-        <PollSearch></PollSearch>
+        {/* <PollSearch></PollSearch> */}
+        <PollPost></PollPost>
       </div>
     </div>
   );

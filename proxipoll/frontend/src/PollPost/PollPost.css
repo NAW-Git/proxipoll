@@ -1,3 +1,280 @@
-.PollPostContainter {
+.PollPostBackground {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: url("BlurryMap2.jpeg");
+  background-size: cover;
+  /* background-color: rgb(127, 189, 147); */
+  overflow-y: scroll;
+}
 
+.PollPostContainer {
+  position: fixed;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100vw;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+  background-color: white;
+  min-height: 750px;
+  border-radius: 10px;
+  margin-top: 30px;
+  box-shadow: 0px 12px 10px rgba(0, 0, 0, 0.4);
+}
+
+#Title {
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.InputSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90vw;
+  max-width: 350px;
+  background-color: white;
+  height: 90px;
+}
+
+.SectionTitle {
+  width: 90vw;
+  max-width: 350px;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  font-size: 12px;
+  color: gray;
+}
+
+.SectionInput {
+  border-radius: 5px;
+  border: solid 1px black;
+  line-height: 45px;
+  height: 45px;
+  width: 90vw;
+  max-width: 350px;
+  color: black;
+  padding-left: 8px;
+  font-size: 18px;
+  box-sizing: border-box;
+}
+
+#TimeSection {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 350px;
+}
+
+.TimeInput {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+  z-index: 2;
+  width: 100px;
+  height: 45px;
+  border: solid 1px black;
+  background-color: transparent;
+  font-size: 16px;
+  border-radius: 5px;
+  text-align-last: center;
+  padding-right: 50px;
+  line-height: 45px;
+  box-sizing: border-box;
+  color: black;
+}
+
+.TimeInput:hover {
+  cursor: pointer;
+}
+
+.TimeUnit {
+  position: absolute;
+  z-index: 1;
+  font-size: 16px;
+  color: gray;
+  line-height: 47px;
+  height: 47px;
+}
+
+#Days {
+  margin-left: -60px;
+}
+
+#Hours {
+  margin-left: -56px;
+}
+
+#Mins {
+  margin-left: -58px;
+}
+
+.Selected {
+  z-index: 1;
+  position: absolute;
+  background-color: #1f66e0;
+  height: 43px;
+  width: 50%;
+  border-radius: 5px 0px 0px 5px;
+  transition: transform 0.1s ease;
+}
+
+#TypeSection {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 45px;
+  border-radius: 6px;
+  border: solid 1px black;
+  font-size: 16px;
+  color: gray;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+
+.Type {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  color: gray;
+  font-size: 18px;
+}
+
+.Type:hover {
+  cursor: pointer;
+}
+
+#MC {
+  border-right: solid 0.5px black;
+  border-radius: 4px 0px 0px 4px;
+}
+
+#FR {
+  border-left: solid 0.5px black;
+  border-radius: 0px 4px 4px 0px;
+}
+
+.Choice {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.Remove {
+  text-align: center;
+  line-height: 42px;
+  height: 45px;
+  width: 55px;
+  border-radius: 5px;
+  color: black;
+  border: solid 1px black;
+  margin-left: 10px;
+  font-size: 30px;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+.ChoiceInput {
+  border-radius: 5px;
+  border: solid 1px black;
+  height: 45px;
+  width: 100%;
+  max-width: 350px;
+  color: black;
+  padding-left: 8px;
+  font-size: 18px;
+  box-sizing: border-box;
+}
+
+.Add {
+  text-align: center;
+  line-height: 42px;
+  height: 45px;
+  width: 98px;
+  background-color: #1f66e0;
+  border-radius: 5px;
+  color: white;
+  border: solid 1px black;
+  font-size: 30px;
+  box-sizing: border-box;
+}
+
+.Add:hover {
+  cursor: pointer;
+  filter: brightness(1.2);
+}
+
+.Remove:hover {
+  cursor: pointer;
+  filter: brightness(0.95);
+}
+
+.ActionButtons {
+  position: absolute;
+  top: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  width: 90vw;
+  max-width: 350px;
+  background-color: white;
+}
+
+#Post {
+  text-align: center;
+  line-height: 44px;
+  height: 45px;
+  width: 100px;
+  background-color: #1f66e0;
+  color: white;
+  border-radius: 5px;
+  font-size: 20px;
+  box-sizing: border-box;
+  border: solid 1px black;
+}
+
+#Post:hover {
+  cursor: pointer;
+  filter: brightness(1.2);
+}
+
+#Reset {
+  text-align: center;
+  line-height: 44px;
+  height: 45px;
+  width: 100px;
+  background-color: white;
+  border-radius: 5px;
+  margin-right: 10px;
+  box-sizing: border-box;
+  border: solid 1px black;
+  font-size: 20px;
+  color: black;
+}
+
+#Reset:hover {
+  cursor: pointer;
+  filter: brightness(0.95);
+}
+
+@media (max-width: 500px) {
+  .PollPostContainer {
+    height: 86%;
+    border-radius: 0px;
+    width: 100vw;
+    margin-top: -60px;
+    padding-top: 262px;
+    box-shadow: none;
+    margin-bottom: 0px;
+  }
 }
