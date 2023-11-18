@@ -7,13 +7,13 @@ body {
   position: fixed;
   height: 100vh;
   width: 100vw;
-  z-index: 1;
+  z-index: 3;
   background-color: black;
   opacity: 0.4;
 }
 
 .App-header {
-  z-index: 3;
+  z-index: 4;
   position: fixed;
   background-color: #1f66e0;
   height: 60px;

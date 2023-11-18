@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import PollSearch from "./PollSearch/PollSearch";
 import PollPost from "./PollPost/PollPost";
@@ -34,7 +36,10 @@ function App() {
     }
 
     window.addEventListener("resize", handleResize);
-  });
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <div>
@@ -50,63 +55,62 @@ function App() {
             : setHeaderVisibility("visible")
         }
       ></div>
-      <div>
-        <header className="App-header">
-          <div className="App-header-title">
-            {testData == 13 ? "ProxiPoll" : "ProxiPoll"}
-          </div>
-          <MenuIcon
-            className="App-header-menu-icon"
-            onClick={() =>
-              headerVisibility === "visible"
-                ? setHeaderVisibility("hidden")
-                : setHeaderVisibility("visible")
-            }
-          />
-          <div
-            className="PagesContainer"
-            style={{
-              visibility: headerVisibility,
-              opacity: headerVisibility === "visible" ? 1 : 0,
+      <header className="App-header">
+        <div className="App-header-title">
+          {testData == 13 ? "ProxiPoll" : "ProxiPoll"}
+        </div>
+        <MenuIcon
+          className="App-header-menu-icon"
+          onClick={() =>
+            headerVisibility === "visible"
+              ? setHeaderVisibility("hidden")
+              : setHeaderVisibility("visible")
+          }
+        />
+        <div
+          className="PagesContainer"
+          style={{
+            visibility: headerVisibility,
+            opacity: headerVisibility === "visible" ? 1 : 0,
+          }}
+        >
+          <Link
+            style={{ textDecoration: "none", color: "white" }}
+            to="/Search"
+            className="Page"
+            onClick={() => {
+              if (!largeView) setHeaderVisibility("hidden");
             }}
           >
-            <div
-              className="Page"
-              onClick={() => {
-                if (!largeView) setHeaderVisibility("hidden");
-              }}
-            >
-              SEARCH
-            </div>
-            <div
-              className="Page"
-              onClick={() => {
-                if (!largeView) setHeaderVisibility("hidden");
-              }}
-            >
-              CREATE
-            </div>
-            <div
-              className="Page"
-              onClick={() => {
-                if (!largeView) setHeaderVisibility("hidden");
-              }}
-            >
-              PROFILE
-            </div>
-            <div
-              className="Page"
-              onClick={() => {
-                if (!largeView) setHeaderVisibility("hidden");
-              }}
-            >
-              LOGOUT
-            </div>
-          </div>
-        </header>
-        {/* <PollSearch></PollSearch> */}
-        <PollPost></PollPost>
-      </div>
+            SEARCH
+          </Link>
+          <Link
+            style={{ textDecoration: "none", color: "white" }}
+            to="/Create"
+            className="Page"
+            onClick={() => {
+              if (!largeView) setHeaderVisibility("hidden");
+            }}
+          >
+            CREATE
+          </Link>
+          <Link
+            style={{ textDecoration: "none", color: "white" }}
+            to="/Search"
+            className="Page"
+            onClick={() => {
+              if (!largeView) setHeaderVisibility("hidden");
+            }}
+          >
+            LOGOUT
+          </Link>
+        </div>
+      </header>
+      <Routes>
+        <Route path="/" element={<PollSearch />} />
+        <Route path="/Search" element={<PollSearch />} />
+        <Route path="/Create" element={<PollPost />} />
+      </Routes>
     </div>
   );
 }

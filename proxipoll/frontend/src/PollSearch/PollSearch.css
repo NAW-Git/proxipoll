@@ -71,7 +71,7 @@
 .SearchButton:hover {
   cursor: pointer;
   filter: brightness(1.25);
-  }
+}
 
 .SearchBar:focus {
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.4);
@@ -204,7 +204,7 @@
   box-sizing: border-box;
   overflow-y: auto;
   padding-top: 10px;
-  padding-bottom: 500px;
+  padding-bottom: calc(50% + 120px);
 }
 
 .Poll {
@@ -215,7 +215,7 @@
   background-color: white;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.4);
   border: 1px solid transparent;
-  border-radius: 15px;
+  border-radius: 5px;
   margin: 18px auto;
   text-overflow: ellipsis;
   transition: background-color 0.2s, border-color 0.2s;
@@ -312,12 +312,13 @@
     width: 100vw;
     padding: 10px 0px 0px 0px;
     border-right: none;
-    border-BOTTOM: solid 0.5px BLACK;
+    border-bottom: solid 0.5px BLACK;
   }
   .PollsContainer {
     padding-top: 0px;
     border: none;
     border-bottom: solid 1px rgb(190, 190, 190);
+    padding-bottom: calc(100% + 120px);
   }
   .Poll {
     border-width: 0.5px;

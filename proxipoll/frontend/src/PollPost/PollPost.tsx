@@ -3,6 +3,7 @@ import "./PollPost.css";
 
 function PollPost() {
   const [pollType, setPollType] = useState("MC");
+  const [nameDisplay, setNameDisplay] = useState("Public");
   const [choices, setChoices] = useState([
     { id: 0, text: "" },
     { id: 1, text: "" },
@@ -57,6 +58,44 @@ function PollPost() {
               }}
             >
               Free Response
+            </div>
+          </div>
+        </div>
+        <div className="InputSection">
+          <div className="SectionTitle">USERNAME</div>
+          <div id="TypeSection">
+            <div
+              className="Selected"
+              style={{
+                transform:
+                  nameDisplay === "Public"
+                    ? "translateX(0%)"
+                    : "translateX(100%)",
+                borderRadius:
+                  nameDisplay === "Public"
+                    ? "5px 0px 0px 5px"
+                    : "0px 5px 5px 0px",
+              }}
+            ></div>
+            <div
+              className="Type"
+              id="Public"
+              onClick={() => setNameDisplay("Public")}
+              style={{
+                color: nameDisplay === "Public" ? "white" : "gray",
+              }}
+            >
+              Public
+            </div>
+            <div
+              className="Type"
+              id="Anonymous"
+              onClick={() => setNameDisplay("Anonymous")}
+              style={{
+                color: nameDisplay === "Anonymous" ? "white" : "gray",
+              }}
+            >
+              Anonymous
             </div>
           </div>
         </div>
