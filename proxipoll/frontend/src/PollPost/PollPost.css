@@ -124,7 +124,7 @@
   height: 43px;
   width: 50%;
   border-radius: 5px 0px 0px 5px;
-  transition: transform 0.2s ease-in-out, color 0.2s;
+  transition: transform 0.2s ease-in-out;
 }
 
 #TypeSection {

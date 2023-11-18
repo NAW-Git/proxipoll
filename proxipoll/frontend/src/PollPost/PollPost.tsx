@@ -43,7 +43,7 @@ function PollPost() {
               className="Type"
               onClick={() => setPollType("MC")}
               style={{
-                color: pollType === "MC" ? "black" : "gray",
+                color: pollType === "MC" ? "white" : "gray",
               }}
             >
               Multiple Choice
@@ -52,7 +52,7 @@ function PollPost() {
               className="Type"
               onClick={() => setPollType("FR")}
               style={{
-                color: pollType === "FR" ? "black" : "gray",
+                color: pollType === "FR" ? "white" : "gray",
               }}
             >
               Free Response
@@ -79,7 +79,7 @@ function PollPost() {
               className="Type"
               onClick={() => setNameDisplay("Public")}
               style={{
-                color: nameDisplay === "Public" ? "black" : "gray",
+                color: nameDisplay === "Public" ? "white" : "gray",
               }}
             >
               Public
@@ -88,7 +88,7 @@ function PollPost() {
               className="Type"
               onClick={() => setNameDisplay("Anonymous")}
               style={{
-                color: nameDisplay === "Anonymous" ? "black" : "gray",
+                color: nameDisplay === "Anonymous" ? "white" : "gray",
               }}
             >
               Anonymous
