@@ -9,7 +9,7 @@ body {
   width: 100vw;
   z-index: 3;
   background-color: black;
-  opacity: 0.4;
+  opacity: 0.75;
 }
 
 .App-header {
@@ -79,7 +79,7 @@ body {
     background-color: rgb(255, 255, 255);
     position: fixed;
     min-width: 100vw;
-    min-height: 20vh;
+    min-height: 15vh;
     top: 60px;
     display: block;
     flex-direction: column;

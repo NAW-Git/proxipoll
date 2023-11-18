@@ -265,5 +265,6 @@
     box-shadow: none;
     box-sizing: border-box;
     padding-top: 25px;
+    padding-bottom: 150px;
   }
 }
