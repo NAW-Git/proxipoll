@@ -509,7 +509,7 @@ function PollSearch() {
         </div>
         <div className="PollsContainer">{generatePolls()}</div>
       </div>
-      <img className="MapContainer" src={Map} alt="Santa Cruz Map"></img>
+      <div className="MapContainer"></div>
     </div>
   );
 }

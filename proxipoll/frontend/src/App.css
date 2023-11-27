@@ -7,13 +7,13 @@ body {
   position: fixed;
   height: 100vh;
   width: 100vw;
-  z-index: 1;
+  z-index: 3;
   background-color: black;
-  opacity: 0.66;
+  opacity: 0.75;
 }
 
 .App-header {
-  z-index: 2;
+  z-index: 4;
   position: fixed;
   background-color: #1f66e0;
   height: 60px;
@@ -79,7 +79,7 @@ body {
     background-color: rgb(255, 255, 255);
     position: fixed;
     min-width: 100vw;
-    min-height: 20vh;
+    min-height: 15vh;
     top: 60px;
     display: block;
     flex-direction: column;
