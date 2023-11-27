@@ -221,6 +221,7 @@ function PollPost() {
           <div id="Reset">Reset</div>
           <div id="Post">Post</div>
         </div>
+        <div id="BottomMargin"></div>
       </div>
     </div>
   );
