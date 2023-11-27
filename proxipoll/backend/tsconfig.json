@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "moduleDetection": "force",
+    "composite": true,
+    "strict": true,
+    "downlevelIteration": true,
+    "types": [
+      "bun-types" // add Bun global
+    ]
+  },
+  "extends": "../tsconfig.json"
+}
