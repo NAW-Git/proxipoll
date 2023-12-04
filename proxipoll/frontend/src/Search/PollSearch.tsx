@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
+import ViewAndVote from "../ViewAndVote/ViewAndVote";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import SearchIcon from "@mui/icons-material/Search";
@@ -9,6 +10,8 @@ import Map from "./Map.png";
 
 function PollSearch() {
   const [currentDropdown, setCurrentDropdown] = useState<string>("");
+  const [pollView, setPollView] = useState<string>("none");
+  const [selectedPoll, setSelectedPoll] = useState<string>("BLANK");
   const dropdownRefs = {
     status: useRef<HTMLDivElement>(null),
     type: useRef<HTMLDivElement>(null),
@@ -96,17 +99,18 @@ function PollSearch() {
 
     const polls = pollTitles.map((title, index) => (
       <div key={index}>
-        <div className="Poll">
+        <div className="Poll" onClick={() => {setSelectedPoll(title); setPollView("block")}}>
           <div className="PollPoster">
             Posted by AnonymousUser &#8226; 49 Answers
             <div style={{ display: "flex", alignItems: "center" }}>
               <MoreHorizIcon
                 className="PollMoreIcon"
-                onClick={() =>
+                onClick={(event) => {
+                  event.stopPropagation();
                   currentDropdown === `poll${index}`
                     ? setCurrentDropdown("")
-                    : setCurrentDropdown(`poll${index}`)
-                }
+                    : setCurrentDropdown(`poll${index}`);
+                }}
               />
               <div
                 className="PollDropdown"
@@ -117,11 +121,12 @@ function PollSearch() {
               >
                 <div
                   className="PollOption"
-                  onClick={() =>
+                  onClick={(event) => {
+                    event.stopPropagation();
                     currentDropdown === `poll${index}`
                       ? setCurrentDropdown("")
-                      : setCurrentDropdown(`poll${index}`)
-                  }
+                      : setCurrentDropdown(`poll${index}`);
+                  }}
                 >
                   <ReportIcon
                     style={{
@@ -133,11 +138,12 @@ function PollSearch() {
                 <div className="OptionBorder"></div>
                 <div
                   className="PollOption"
-                  onClick={() =>
+                  onClick={(event) => {
+                    event.stopPropagation();
                     currentDropdown === `poll${index}`
                       ? setCurrentDropdown("")
-                      : setCurrentDropdown(`poll${index}`)
-                  }
+                      : setCurrentDropdown(`poll${index}`);
+                  }}
                 >
                   <DeleteIcon
                     style={{
@@ -168,7 +174,18 @@ function PollSearch() {
   return (
     <div className="MainContainer">
       <div className="FilterAndPollsContainer">
-        <div className="FilterContainer">
+        {
+          <div
+            style={{ display: pollView }}
+            onClick={() => setPollView("none")}
+          >
+            <ViewAndVote pollTitle={selectedPoll} />
+          </div>
+        }
+        <div
+          className="FilterContainer"
+          style={{ display: pollView === "none" ? "flex" : "none" }}
+        >
           <div className="SearchContainer">
             <input
               className="SearchBar"
@@ -507,7 +524,12 @@ function PollSearch() {
             </div>
           </div>
         </div>
-        <div className="PollsContainer">{generatePolls()}</div>
+        <div
+          className="PollsContainer"
+          style={{ display: pollView === "none" ? "block" : "none" }}
+        >
+          {generatePolls()}
+        </div>
       </div>
       <div className="MapContainer"></div>
     </div>

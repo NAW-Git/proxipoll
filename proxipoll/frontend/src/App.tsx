@@ -2,8 +2,8 @@ import { Route, Routes } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
-import PollSearch from "./PollSearch/PollSearch";
-import PollPost from "./PollPost/PollPost";
+import PollSearch from "./Search/PollSearch";
+import PollPost from "./Post/PollPost";
 import "./App.css";
 
 function App() {
